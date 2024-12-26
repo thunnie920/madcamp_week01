@@ -1,0 +1,183 @@
+<?xml version = "1.0" encoding ="UTF-8"?>
+<contacts>
+  <record>
+    <phoneNumber>01043729432</phoneNumber>
+    <name>Yun_Gyeom</name>
+    <group>No Group</group>
+    <email>YeYmail@naver.com</email>
+    <photoUrl>
+      
+    </photoUrl>
+  </record>
+  <record>
+    <phoneNumber>01012345678</phoneNumber>
+    <name>Kim_JiHoon</name>
+    <group>Friends</group>
+    <email>jihoon.kim@example.com</email>
+    <photoUrl>
+      
+    </photoUrl>
+  </record>
+  <record>
+    <phoneNumber>01098765432</phoneNumber>
+    <name>Park_SooBin</name>
+    <group>Work</group>
+    <email>soobin.park@example.com</email>
+    <photoUrl>
+      
+    </photoUrl>
+  </record>
+  <record>
+    <phoneNumber>01011112222</phoneNumber>
+    <name>Lee_ChanMi</name>
+    <group>Family</group>
+    <email>chanmi.lee@example.com</email>
+    <photoUrl>
+      
+    </photoUrl>
+  </record>
+  <record>
+    <phoneNumber>01022223333</phoneNumber>
+    <name>Choi_MinSeok</name>
+    <group>No Group</group>
+    <email>minseok.choi@example.com</email>
+    <photoUrl>
+      
+    </photoUrl>
+  </record>
+  <record>
+    <phoneNumber>01033334444</phoneNumber>
+    <name>Jung_HyeJin</name>
+    <group>Friends</group>
+    <email>hyejin.jung@example.com</email>
+    <photoUrl>
+      
+    </photoUrl>
+  </record>
+  <record>
+    <phoneNumber>01044445555</phoneNumber>
+    <name>Han_DaeHyun</name>
+    <group>Work</group>
+    <email>daehyun.han@example.com</email>
+    <photoUrl>
+      
+    </photoUrl>
+  </record>
+  <record>
+    <phoneNumber>01055556666</phoneNumber>
+    <name>Song_YeJi</name>
+    <group>Family</group>
+    <email>yeji.song@example.com</email>
+    <photoUrl>
+      
+    </photoUrl>
+  </record>
+  <record>
+    <phoneNumber>01066667777</phoneNumber>
+    <name>Yoo_SungMin</name>
+    <group>No Group</group>
+    <email>sungmin.yoo@example.com</email>
+    <photoUrl>
+      
+    </photoUrl>
+  </record>
+  <record>
+    <phoneNumber>01077778888</phoneNumber>
+    <name>Oh_AhYoung</name>
+    <group>Friends</group>
+    <email>ahyoung.oh@example.com</email>
+    <photoUrl>
+      
+    </photoUrl>
+  </record>
+  <record>
+    <phoneNumber>01088889999</phoneNumber>
+    <name>Kang_JaeYoon</name>
+    <group>Work</group>
+    <email>jaeyoon.kang@example.com</email>
+    <photoUrl>
+      
+    </photoUrl>
+  </record>
+  <record>
+    <phoneNumber>01099990000</phoneNumber>
+    <name>Shin_HyoJung</name>
+    <group>Family</group>
+    <email>hyojung.shin@example.com</email>
+    <photoUrl>
+      
+    </photoUrl>
+  </record>
+  <record>
+    <phoneNumber>01011223344</phoneNumber>
+    <name>Lim_SeungHo</name>
+    <group>No Group</group>
+    <email>seungho.lim@example.com</email>
+    <photoUrl>
+      
+    </photoUrl>
+  </record>
+  <record>
+    <phoneNumber>01022334455</phoneNumber>
+    <name>Seo_MiRan</name>
+    <group>Friends</group>
+    <email>miran.seo@example.com</email>
+    <photoUrl>
+      
+    </photoUrl>
+  </record>
+  <record>
+    <phoneNumber>01033445566</phoneNumber>
+    <name>Baek_SooHyun</name>
+    <group>Work</group>
+    <email>soohyun.baek@example.com</email>
+    <photoUrl>
+      
+    </photoUrl>
+  </record>
+  <record>
+    <phoneNumber>01044556677</phoneNumber>
+    <name>Jang_HanNa</name>
+    <group>Family</group>
+    <email>hanna.jang@example.com</email>
+    <photoUrl>
+      
+    </photoUrl>
+  </record>
+  <record>
+    <phoneNumber>01055667788</phoneNumber>
+    <name>Jo_EunWoo</name>
+    <group>No Group</group>
+    <email>eunwoo.jo@example.com</email>
+    <photoUrl>
+      
+    </photoUrl>
+  </record>
+  <record>
+    <phoneNumber>01066778899</phoneNumber>
+    <name>Hong_JinYoung</name>
+    <group>Friends</group>
+    <email>jinyoung.hong@example.com</email>
+    <photoUrl>
+      
+    </photoUrl>
+  </record>
+  <record>
+    <phoneNumber>01077889900</phoneNumber>
+    <name>Ahn_YoonJi</name>
+    <group>Work</group>
+    <email>yoonji.ahn@example.com</email>
+    <photoUrl>
+      
+    </photoUrl>
+  </record>
+  <record>
+    <phoneNumber>01088990011</phoneNumber>
+    <name>Kim_HaNa</name>
+    <group>Family</group>
+    <email>hana.kim@example.com</email>
+    <photoUrl>
+      
+    </photoUrl>
+  </record>
+</contacts>
