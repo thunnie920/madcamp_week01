@@ -112,8 +112,12 @@ public class DetailActivity extends AppCompatActivity {
 
         // 넙죽이를 클릭하면 회전 애니메이션 시작
         nupjuk.setOnClickListener(v -> {
-            setupRotationAnimation(nupjuk, (long) currentRotationSpeed);
-            currentRotationSpeed = Math.max(500, currentRotationSpeed - 200); // 클릭할수록 속도 증가
+            if (currentRotationSpeed <= 500) { // 최대 속도에 도달했을 때
+                nupjuk.setImageResource(R.drawable.angry_nupjuk); // drawable angry_nupjuk 설정
+            } else {
+                setupRotationAnimation(nupjuk, (long) currentRotationSpeed);
+                currentRotationSpeed = Math.max(500, currentRotationSpeed - 200); // 클릭할수록 속도 증가
+            }
         });
     }
 

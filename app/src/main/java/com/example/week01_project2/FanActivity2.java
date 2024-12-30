@@ -33,7 +33,22 @@ public class FanActivity2 extends AppCompatActivity {
             AudioFormat.CHANNEL_IN_MONO,
             AudioFormat.ENCODING_PCM_16BIT
     );
+    private void updateNupjukSpeed(long fanSpeedDuration, boolean isCool) {
+        long nupjukSpeedDuration;
 
+        if (isCool) {
+            nupjukSpeedDuration = Math.min(6000, fanSpeedDuration * 2); // 팬이 시원할 때 더 천천히 움직임
+        } else {
+            nupjukSpeedDuration = Math.max(500, 6000 - fanSpeedDuration); // 팬이 더운 상태일 때 더 빠르게 움직임
+        }
+
+        moveAlongRectangle.setDuration(nupjukSpeedDuration);
+        if (!moveAlongRectangle.isRunning()) {
+            moveAlongRectangle.start(); // 넙죽이 애니메이션 시작
+        }
+
+        Log.d("FanActivity2", "Nupjuk Speed Updated: " + nupjukSpeedDuration + " ms (Cool: " + isCool + ")");
+    }
     @Override
     public void onRequestPermissionsResult(int requestCode,
                                               @NonNull String[] permissions,
@@ -46,6 +61,7 @@ public class FanActivity2 extends AppCompatActivity {
                 Log.d("FanActivity2", "RECORD_AUDIO 권한 거부됨");
             }
         }
+
     }
 
     @Override
@@ -72,6 +88,10 @@ public class FanActivity2 extends AppCompatActivity {
 
         // 넙죽이 이동 애니메이션
         moveAlongRectangle = createRectangleAnimation(hotNupjuk);
+        moveAlongRectangle.start(); // 넙죽이 이동 시작
+
+        // 초기 넙죽이 속도 설정
+        updateNupjukSpeed((long) baseDuration, false);
 
         // 버튼 클릭 시 데시벨 측정 및 상태 변경
         speedUpButton.setOnClickListener(v -> measureDecibelAndAdjustSpeed(hotNupjuk));
@@ -142,7 +162,7 @@ public class FanActivity2 extends AppCompatActivity {
                             "3초 측정 완료! 평균 데시벨: " + (int) averageDecibel + " dB",
                             Toast.LENGTH_SHORT).show();
 
-                    if (averageDecibel > 20) {
+                    if (averageDecibel > 50) {
                         hotNupjuk.setImageResource(R.drawable.cool_nupjuk);
                         if (!moveAlongRectangle.isRunning()) {
                             moveAlongRectangle.start();
@@ -169,33 +189,73 @@ public class FanActivity2 extends AppCompatActivity {
         }).start();
     }
 
+    private boolean isStopped = false; // 팬이 중지 상태인지 여부
+
     private void startSpeedDecay() {
         speedHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                if (isDecaying) {
+                if (isDecaying && !isStopped) {
                     long currentDuration = rotateAnimator.getDuration();
-                    long newDuration = (long) (currentDuration * decayFactor);
+                    long stopTime = (long) (currentDuration);
 
-                    if (newDuration > 5000) newDuration = 5000;
+                    // 일정 시간 후 애니메이션 중지
+                    speedHandler.postDelayed(() -> {
+                        runOnUiThread(() -> {
+                            if (!isStopped) {
+                                rotateAnimator.cancel(); // 팬 애니메이션 중지
+                                isStopped = true; // 중지 상태로 설정
 
-                    rotateAnimator.setDuration(newDuration);
-                    Log.d("FanActivity2", "Auto-Decayed Fan Speed. New Duration: " + newDuration);
+                                // 넙죽이를 빨간 상태로 변경
+                                ImageView hotNupjuk = findViewById(R.id.hot_nupjuk);
+                                hotNupjuk.setImageResource(R.drawable.hot_nupjuk);
+                                updateNupjukSpeed(currentDuration, true); // 넙죽이가 천천히 움직임
+                                Log.d("FanActivity2", "Fan animation stopped. Nupjuk turned red.");
+                            }
+                        });
+                    }, stopTime);
                 }
-                speedHandler.postDelayed(this, autoDecayInterval);
             }
         }, autoDecayInterval);
     }
 
     private void adjustFanSpeed(double decibel) {
-        if (decibel < 10) decibel = 10;
-        if (decibel > 70) decibel = 70;
+        if (decibel < 10) decibel = 10; // 최소 데시벨 클램핑
+        if (decibel > 70) decibel = 70; // 최대 데시벨 클램핑
 
         long newDuration = (long) (3491 - 49 * decibel);
 
         runOnUiThread(() -> {
-            rotateAnimator.setDuration(newDuration);
+            if (isStopped) { // 팬이 중지 상태라면
+                rotateAnimator.start(); // 팬 애니메이션 재개
+                isStopped = false; // 중지 상태 해제
+
+                // 넙죽이를 시원한 상태로 변경
+                ImageView hotNupjuk = findViewById(R.id.hot_nupjuk);
+                hotNupjuk.setImageResource(R.drawable.cool_nupjuk);
+                Log.d("FanActivity2", "Animation restarted. Nupjuk turned cool.");
+            }
+
+            rotateAnimator.setDuration(newDuration); // 팬 속도 업데이트
+            updateNupjukSpeed(newDuration, false); // 넙죽이 속도 동기화 (빨리 움직임)
             Log.d("FanActivity2", "Adjusted Fan Speed. New Duration: " + newDuration);
+
+            // 새로운 중지 타이머 설정
+            long stopTime = newDuration*10; // 팬 속도의 10배 시간 후 중지
+            speedHandler.postDelayed(() -> {
+                runOnUiThread(() -> {
+                    if (!isStopped) {
+                        rotateAnimator.cancel(); // 팬 애니메이션 중지
+                        isStopped = true; // 중지 상태로 설정
+
+                        // 넙죽이를 빨간 상태로 변경
+                        ImageView hotNupjuk = findViewById(R.id.hot_nupjuk);
+                        hotNupjuk.setImageResource(R.drawable.hot_nupjuk);
+                        updateNupjukSpeed(newDuration, true); // 팬이 멈췄을 때도 넙죽이가 천천히 움직임
+                        Log.d("FanActivity2", "Fan animation stopped. Nupjuk turned red.");
+                    }
+                });
+            }, stopTime);
         });
     }
 
