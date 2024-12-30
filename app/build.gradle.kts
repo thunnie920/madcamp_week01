@@ -47,7 +47,6 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
-    val nav_version = "2.7.6"
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.6") // Navigation
     implementation("androidx.navigation:navigation-ui-ktx:2.7.6") // Navigation
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
