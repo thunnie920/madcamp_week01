@@ -6,25 +6,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/fan"
-        android:layout_width="379dp"
-        android:layout_height="437dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="124dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/fan" />
+<!--    <ImageView-->
+<!--        android:id="@+id/fan"-->
+<!--        android:layout_width="379dp"-->
+<!--        android:layout_height="437dp"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginTop="124dp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:srcCompat="@drawable/fan" />-->
 
     <ImageView
         android:id="@+id/fanfan"
-        android:layout_width="201dp"
-        android:layout_height="210dp"
-        android:layout_marginStart="104dp"
-        android:layout_marginTop="192dp"
+        android:layout_width="244dp"
+        android:layout_height="261dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="162dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/fanfan" />
+        app:srcCompat="@drawable/wow" />
 
     <Button
         android:id="@+id/speedUpButton"

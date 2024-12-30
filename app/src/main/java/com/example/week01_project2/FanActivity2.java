@@ -97,8 +97,8 @@ public class FanActivity2 extends AppCompatActivity {
                 Log.d("FanActivity2", "Started audio recording...");
 
                 long startTime = System.currentTimeMillis();
-                double totalDecibel = 0;
-                int sampleCount = 0;
+                double totalDecibel = 0; // 데시벨 합계를 저장할 변수
+                int sampleCount = 0; // 유효한 샘플의 개수
 
                 while (System.currentTimeMillis() - startTime < 3000) { // 3초 동안 측정
                     int read = audioRecord.read(buffer, 0, buffer.length);
@@ -106,22 +106,23 @@ public class FanActivity2 extends AppCompatActivity {
                         double rms = calculateRMS(buffer, read);
                         double decibel = 20 * Math.log10(rms);
                         if (decibel > 0) { // RMS 값이 유효한 경우만 계산
-                            totalDecibel += decibel;
-                            sampleCount++;
+                            totalDecibel += decibel; // 데시벨 합산
+                            sampleCount++; // 샘플 개수 증가
                         }
                     }
                 }
 
-                // 평균 데시벨 계산
+// 평균값 계산
                 double averageDecibel = sampleCount > 0 ? totalDecibel / sampleCount : 0;
+
                 Log.d("FanActivity2", "Average Decibel: " + averageDecibel);
 
-                // 측정 완료 메시지 표시
+// 측정 완료 메시지 표시
                 runOnUiThread(() -> Toast.makeText(FanActivity2.this,
                         "3초 측정 완료! 평균 데시벨: " + (int) averageDecibel + " dB",
                         Toast.LENGTH_SHORT).show());
 
-                // 팬 속도 조정
+// 팬 속도 조정
                 adjustFanSpeed(averageDecibel);
 
             } catch (Exception e) {
@@ -140,10 +141,10 @@ public class FanActivity2 extends AppCompatActivity {
     private void adjustFanSpeed(double decibel) {
         // 데시벨 범위 (10~80) -> 회전 시간 (3000ms ~ 100ms)
         if (decibel < 10) decibel = 10; // 최소 데시벨 클램핑
-        if (decibel > 80) decibel = 80; // 최대 데시벨 클램핑
+        if (decibel > 70) decibel = 70; // 최대 데시벨 클램핑
 
         // 회전 시간 계산 (3000ms ~ 100ms, 데시벨이 높을수록 빠르게)
-        long newDuration = (long) (3000 - ((decibel - 10) / 70.0) * 2900);
+        long newDuration = (long) (3491 - 49 * decibel) ;
 
         runOnUiThread(() -> {
             float currentPlayTime = rotateAnimator.getCurrentPlayTime();
