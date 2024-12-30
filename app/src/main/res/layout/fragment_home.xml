@@ -6,6 +6,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/home_background"
         tools:context=".HomeFragment">
 
         <!-- 버튼: Contact -->
@@ -20,9 +21,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="spread_inside"/>
 
-        <!-- 버튼: Something Else -->
+        <!-- 버튼: Image -->
         <android.widget.Button
             android:id="@+id/button_image"
             android:layout_width="372dp"
@@ -31,11 +33,12 @@
             android:background="@drawable/button_background"
             android:text="@string/image"
             android:textSize="10pt"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/button_contact" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/button_contact"
+            app:layout_constraintBottom_toTopOf="@id/button_else" />
 
-        <!-- 버튼: Else -->
+        <!-- 버튼: Something Else -->
         <android.widget.Button
             android:id="@+id/button_else"
             android:layout_width="372dp"
@@ -44,9 +47,10 @@
             android:background="@drawable/button_background"
             android:text="something_else"
             android:textSize="10pt"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/button_image" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/button_image"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline"

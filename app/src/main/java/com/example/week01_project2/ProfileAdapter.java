@@ -10,8 +10,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.PackageManagerCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -30,6 +34,7 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.CustomVi
         ImageView picture;
         TextView name, telNum, email, birthDay;
         Button callButton;
+        Button textButton;
 
         public CustomViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -37,6 +42,7 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.CustomVi
             name = itemView.findViewById(R.id.contact_name);
             telNum = itemView.findViewById(R.id.contact_phoneNumber);
             callButton = itemView.findViewById(R.id.call_button);
+            textButton = itemView.findViewById(R.id.text_button);
         }
     }
 
@@ -54,7 +60,7 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.CustomVi
         holder.name.setText(profile.getName());
         holder.telNum.setText(profile.getTelNum());
 
-        // 버튼 클릭 리스너 추가
+        // call 버튼 클릭 리스너 추가
         holder.callButton.setOnClickListener(v -> {
             String telNum = profile.getTelNum();
             if (telNum == null || telNum.isEmpty()) {
@@ -70,6 +76,26 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.CustomVi
                 context.startActivity(intent);
             } else {
                 Log.e("ProfileAdapter", "전화 앱이 없습니다.");
+            }
+        });
+
+        // text 버튼 클릭 리스너 추가
+        holder.textButton.setOnClickListener(v -> {
+            String telNum = profile.getTelNum();
+            if (telNum == null || telNum.isEmpty()) {
+                Log.e("ProfileAdapter", "전화번호가 없습니다.");
+                return;
+            }
+
+            Intent intent = new Intent(Intent.ACTION_SENDTO);
+            intent.setData(Uri.parse("smsto:" + telNum));
+            intent.putExtra("sms_body", "안녕하세요~");
+
+            Context context = v.getContext();
+            if (intent.resolveActivity(context.getPackageManager()) != null) {
+                context.startActivity(intent);
+            } else {
+                Log.e("ProfileAdapter", "메시지 앱이 없습니다.");
             }
         });
     }
