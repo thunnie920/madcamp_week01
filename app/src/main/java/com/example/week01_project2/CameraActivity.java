@@ -76,6 +76,8 @@ public class CameraActivity extends AppCompatActivity {
                 finish();
             });
 
+
+
             File imageFile = new File(imagePath);
             String metadata = getPhotoMetadata(this, imageFile.getName());
 
