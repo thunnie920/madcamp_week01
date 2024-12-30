@@ -1,11 +1,15 @@
 package com.example.week01_project2;
 
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.view.animation.LinearInterpolator;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,9 +19,10 @@ import org.w3c.dom.Text;
 
 public class DetailActivity extends AppCompatActivity {
 
-    Button textButton;
-    Button callButton;
-    Button videoButton;
+    ImageButton textButton;
+    ImageButton callButton;
+    ImageButton videoButton;
+    ImageView nupjuk;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +54,7 @@ public class DetailActivity extends AppCompatActivity {
         textButton = findViewById(R.id.button_text);
         callButton = findViewById(R.id.button_call);
         videoButton = findViewById(R.id.button_video);
+        nupjuk = findViewById(R.id.nupjuk);
 
         textButton.setOnClickListener(v -> {
             if (telNum == null || telNum.isEmpty()) {
@@ -100,5 +106,21 @@ public class DetailActivity extends AppCompatActivity {
                 Log.e("ProfileAdapter", "Google Meet 앱이 없습니다.", e);
             }
         });
+
+        // 버튼 애니메이션 추가 (속도 빠르게)
+        setupButtonAnimation(nupjuk, 0f, 500f, 500);
+    }
+    private void setupButtonAnimation(View button, float startX, float endX, long duration) {
+        ObjectAnimator animator = ObjectAnimator.ofFloat(
+                button,
+                "translationX",
+                startX,
+                endX
+        );
+        animator.setDuration(duration); // 애니메이션 지속 시간 (500ms)
+        animator.setRepeatCount(ObjectAnimator.INFINITE); // 무한 반복
+        animator.setRepeatMode(ObjectAnimator.REVERSE); // 왕복 애니메이션
+        animator.setInterpolator(new LinearInterpolator()); // 일정한 속도
+        animator.start(); // 애니메이션 시작
     }
 }

@@ -60,6 +60,7 @@
             android:layout_width="46dp"
             android:layout_height="46dp"
             android:layout_marginStart="44dp"
+            android:layout_marginTop="8dp"
             android:background="@android:color/transparent"
             android:scaleType="centerInside"
             android:src="@android:drawable/ic_dialog_email"
@@ -71,10 +72,11 @@
             android:layout_width="46dp"
             android:layout_height="46dp"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:background="@android:color/transparent"
-            android:src="@android:drawable/ic_menu_call"
             android:scaleType="centerInside"
+            android:src="@android:drawable/ic_menu_call"
             app:layout_constraintEnd_toStartOf="@+id/button_video"
             app:layout_constraintStart_toEndOf="@+id/button_text"
             app:layout_constraintTop_toBottomOf="@+id/cardView" />
@@ -84,7 +86,7 @@
             android:id="@+id/button_video"
             android:layout_width="46dp"
             android:layout_height="46dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="48dp"
             android:background="@android:color/transparent"
             android:scaleType="centerInside"
@@ -97,14 +99,15 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/button_background_2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button_call">
+            app:layout_constraintTop_toBottomOf="@+id/button_call"
+            app:layout_constraintVertical_bias="0.196">
 
             <TextView
                 android:id="@+id/contact_info"
@@ -205,6 +208,15 @@
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/nupjuk"
+            android:layout_width="161dp"
+            android:layout_height="307dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/bbox_info"
+            app:layout_constraintTop_toBottomOf="@+id/bbox_info"
+            app:srcCompat="@drawable/file" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

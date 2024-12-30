@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,8 +34,8 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.CustomVi
     public static class CustomViewHolder extends RecyclerView.ViewHolder {
         ImageView picture;
         TextView name, telNum, email, birthDay;
-        Button callButton;
-        Button textButton;
+        ImageButton callButton;
+        ImageButton textButton;
 
         public CustomViewHolder(@NonNull View itemView) {
             super(itemView);

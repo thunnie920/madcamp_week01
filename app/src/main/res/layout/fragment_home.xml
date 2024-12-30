@@ -6,8 +6,19 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/home_background"
         tools:context=".HomeFragment">
+
+        <!-- Background Image -->
+        <ImageView
+            android:id="@+id/background_image"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/home_background3"
+            android:scaleType="centerCrop"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <!-- 버튼: Contact -->
         <android.widget.Button
@@ -15,7 +26,7 @@
             android:layout_width="372dp"
             android:layout_height="150dp"
             android:layout_marginTop="60dp"
-            android:background="@drawable/button_background"
+            android:background="@drawable/button_background_3"
             android:text="@string/contact"
             android:textSize="10pt"
             app:layout_constraintEnd_toEndOf="parent"
@@ -30,7 +41,7 @@
             android:layout_width="372dp"
             android:layout_height="150dp"
             android:layout_marginTop="20dp"
-            android:background="@drawable/button_background"
+            android:background="@drawable/button_background_3"
             android:text="@string/image"
             android:textSize="10pt"
             app:layout_constraintStart_toStartOf="parent"
@@ -44,8 +55,8 @@
             android:layout_width="372dp"
             android:layout_height="150dp"
             android:layout_marginTop="20dp"
-            android:background="@drawable/button_background"
-            android:text="something_else"
+            android:background="@drawable/button_background_3"
+            android:text="GUESS WHAT?"
             android:textSize="10pt"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
