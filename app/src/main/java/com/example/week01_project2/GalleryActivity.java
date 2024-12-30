@@ -2,15 +2,18 @@ package com.example.week01_project2;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
-import android.widget.Toast;
+import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -52,6 +55,11 @@ public class GalleryActivity extends AppCompatActivity {
         adapter = new ImageAdapter(this, imageFiles);
         recyclerView.setAdapter(adapter);
 
+        // DividerItemDecoration 추가
+        int dividerColor = getResources().getColor(android.R.color.black); // 경계선 색상
+        int dividerSize = 5; // 경계선 두께 (px)
+        recyclerView.addItemDecoration(new DividerItemDecoration(dividerColor, dividerSize));
+
         // 핀치 줌 설정
         scaleGestureDetector = new ScaleGestureDetector(this, new ScaleGestureDetector.SimpleOnScaleGestureListener() {
             @Override
@@ -76,8 +84,6 @@ public class GalleryActivity extends AppCompatActivity {
             scaleGestureDetector.onTouchEvent(event); // 핀치 줌 이벤트 처리
             return scaleGestureDetector.isInProgress(); // 핀치 줌 중이 아니면 기본 이벤트 전달
         });
-        gridLayoutManager = new GridLayoutManager(this, spanCount, RecyclerView.VERTICAL, false);
-        recyclerView.setLayoutManager(gridLayoutManager);
 
         // FloatingActionButton 눌렀을 때 카메라 실행
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -134,6 +140,7 @@ public class GalleryActivity extends AppCompatActivity {
         String fileName = "IMG_" + System.currentTimeMillis() + ".jpg";
         return new File(storageDir, fileName);
     }
+
     private void checkPermissions() {
         if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED ||
                 ContextCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
@@ -142,6 +149,7 @@ public class GalleryActivity extends AppCompatActivity {
                     new String[]{android.Manifest.permission.CAMERA, android.Manifest.permission.WRITE_EXTERNAL_STORAGE}, 100);
         }
     }
+
     // 폴더 내 .jpg 파일 불러오기
     private List<File> loadImages() {
         List<File> imageFiles = new ArrayList<>();
@@ -167,5 +175,48 @@ public class GalleryActivity extends AppCompatActivity {
         }
         scaleGestureDetector.onTouchEvent(event);
         return super.onTouchEvent(event);
+    }
+
+    // DividerItemDecoration 클래스 (경계선 추가)
+    private static class DividerItemDecoration extends RecyclerView.ItemDecoration {
+        private final int dividerSize; // 경계선 두께
+        private final Paint paint;    // 경계선 색상
+
+        public DividerItemDecoration(int color, int dividerSize) {
+            this.dividerSize = dividerSize;
+            paint = new Paint();
+            paint.setColor(color);
+            paint.setStyle(Paint.Style.FILL);
+        }
+
+        @Override
+        public void onDraw(@NonNull Canvas canvas, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
+            int childCount = parent.getChildCount();
+            for (int i = 0; i < childCount; i++) {
+                View child = parent.getChildAt(i);
+                RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) child.getLayoutParams();
+
+                // 아이템 간 경계선 그리기 (넉넉하게 덮도록 보정)
+                int left = child.getLeft() - params.leftMargin - dividerSize;
+                int right = child.getRight() + params.rightMargin + dividerSize;
+                int top = child.getTop() - params.topMargin - dividerSize;
+                int bottom = child.getBottom() + params.bottomMargin + dividerSize;
+
+                // 상단 경계선
+                canvas.drawRect(left, top, right, top + dividerSize, paint);
+                // 하단 경계선
+                canvas.drawRect(left, bottom - dividerSize, right, bottom, paint);
+                // 좌측 경계선
+                canvas.drawRect(left, top, left + dividerSize, bottom, paint);
+                // 우측 경계선
+                canvas.drawRect(right - dividerSize, top, right, bottom, paint);
+            }
+        }
+
+        @Override
+        public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
+            // 아이템 간 간격 설정
+            outRect.set(dividerSize, dividerSize, dividerSize, dividerSize);
+        }
     }
 }
