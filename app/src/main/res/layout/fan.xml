@@ -35,4 +35,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginBottom="16dp" />
+
+    <ImageView
+        android:id="@+id/hot_nupjuk"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/speedUpButton"
+        app:layout_constraintTop_toBottomOf="@+id/fanfan"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/hot_nupjuk"
+        tools:layout_editor_absoluteX="55dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

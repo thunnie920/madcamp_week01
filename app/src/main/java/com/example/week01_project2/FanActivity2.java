@@ -1,6 +1,9 @@
 package com.example.week01_project2;
 
+import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
+import android.graphics.Path;
 import android.content.pm.PackageManager;
 import android.media.AudioFormat;
 import android.media.AudioRecord;
@@ -69,6 +72,27 @@ public class FanActivity2 extends AppCompatActivity {
                 measureDecibelAndAdjustSpeed();
             }
         });
+
+        // 넙죽이 움직이는 부분
+        ImageView hotNupjuk = findViewById(R.id.hot_nupjuk);
+
+        // 사각형 경로 정의
+        Path rectanglePath = new Path();
+        rectanglePath.moveTo(-200f, 0f); // 시작점 (왼쪽 아래)
+        rectanglePath.lineTo(200f, 0f); // 오른쪽 아래로 이동
+        rectanglePath.lineTo(200f, -200f); // 오른쪽 위로 이동
+        rectanglePath.lineTo(-200f, -200f); // 왼쪽 위로 이동
+        rectanglePath.lineTo(-200f, 0f); // 시작점으로 돌아옴
+
+        // ObjectAnimator를 사용해 궤적 애니메이션 생성
+        ObjectAnimator moveAlongRectangle = ObjectAnimator.ofFloat(hotNupjuk, "translationX", "translationY", rectanglePath);
+        moveAlongRectangle.setDuration(3000); // 4초 동안 사각형 이동
+        moveAlongRectangle.setRepeatCount(ValueAnimator.INFINITE); // 무한 반복
+        moveAlongRectangle.setRepeatMode(ValueAnimator.RESTART); // 처음부터 다시 시작
+
+        // 애니메이션 시작
+        moveAlongRectangle.start();
+
     }
 
     private void measureDecibelAndAdjustSpeed() {
