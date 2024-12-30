@@ -1,6 +1,7 @@
 package com.example.week01_project2;
 
 import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.content.pm.PackageManager;
 import android.media.AudioFormat;
 import android.media.AudioRecord;
@@ -16,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import android.graphics.Path; // 올바른 Path 클래스 임포트 추가
 
 public class FanActivity2 extends AppCompatActivity {
     private Handler speedHandler = new Handler(); // 핸들러 생성
@@ -33,7 +35,7 @@ public class FanActivity2 extends AppCompatActivity {
     );
 
     @Override
-    protected void onRequestPermissionsResult(int requestCode,
+    public void onRequestPermissionsResult(int requestCode,
                                               @NonNull String[] permissions,
                                               @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -140,13 +142,13 @@ public class FanActivity2 extends AppCompatActivity {
                             "3초 측정 완료! 평균 데시벨: " + (int) averageDecibel + " dB",
                             Toast.LENGTH_SHORT).show();
 
-                    if (averageDecibel > 60) {
-                        hotNupjuk.setImageResource(R.drawable.fffann);
+                    if (averageDecibel > 20) {
+                        hotNupjuk.setImageResource(R.drawable.cool_nupjuk);
                         if (!moveAlongRectangle.isRunning()) {
                             moveAlongRectangle.start();
                         }
                     } else {
-                        hotNupjuk.setImageResource(R.drawable.heyyy);
+                        hotNupjuk.setImageResource(R.drawable.hot_nupjuk);
                         if (moveAlongRectangle.isRunning()) {
                             moveAlongRectangle.cancel();
                         }
