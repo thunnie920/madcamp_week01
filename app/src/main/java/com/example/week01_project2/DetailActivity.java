@@ -91,16 +91,14 @@ public class DetailActivity extends AppCompatActivity {
                 return;
             }
 
-            Intent intent2 = new Intent(Intent.ACTION_VIEW);
-            intent2.setData(Uri.parse("https://meet.google.com/new"));
+            String meetUrl = "https://meet.google.com/landing";
+            Intent intent2 = new Intent(Intent.ACTION_VIEW, Uri.parse(meetUrl));
 
-            Context context = v.getContext();
-            if (intent2.resolveActivity(context.getPackageManager()) != null) {
-                context.startActivity(intent2);
-            } else {
-                Log.e("ProfileAdapter", "전화 앱이 없습니다.");
+            try {
+                v.getContext().startActivity(intent2);
+            } catch (Exception e) {
+                Log.e("ProfileAdapter", "Google Meet 앱이 없습니다.", e);
             }
         });
-
     }
 }
