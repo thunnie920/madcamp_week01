@@ -4,12 +4,16 @@ public class Profile {
     private int picture;
     private String name;
     private String telNum;
+    private String email;
+    private String birthDay;
 
     // Constructor
     public Profile(int picture, String name, String telNum, String email, String birthDay) {
         this.picture = picture;
         this.name = name;
         this.telNum = telNum;
+        this.email = email;
+        this.birthDay = birthDay;
     }
 
     // Getters
@@ -22,6 +26,12 @@ public class Profile {
     public String getTelNum() {
         return telNum;
     }
+    public String getEmail() {
+        return email;
+    }
+    public String getBirthDay() {
+        return birthDay;
+    }
 
     // Setters
     public void setPicture(int picture) {
@@ -33,4 +43,11 @@ public class Profile {
     public void setTelNum(String telNum) {
         this.telNum = telNum;
     }
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    public void setBirthday(String birthDay) {
+        this.birthDay = birthDay;
+    }
+
 }

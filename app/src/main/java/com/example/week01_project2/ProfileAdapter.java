@@ -50,7 +50,28 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.CustomVi
     @Override
     public CustomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item, parent, false);
-        return new CustomViewHolder(view);
+        CustomViewHolder holder = new CustomViewHolder(view);
+
+
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int cursorPosition = holder.getAdapterPosition();
+                Profile profile = profileList.get(cursorPosition);
+
+                Intent intent = new Intent(parent.getContext(), DetailActivity.class);
+                intent.putExtra("picture", profile.getPicture());
+                intent.putExtra("name", profile.getName());
+                intent.putExtra("telNum", profile.getTelNum());
+                intent.putExtra("email", profile.getEmail());
+                intent.putExtra("birthday", profile.getBirthDay());
+
+                // detail page로 이동
+                parent.getContext().startActivity(intent);
+            }
+        });
+
+        return holder;
     }
 
     @Override
@@ -59,6 +80,8 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.CustomVi
         holder.picture.setImageResource(profile.getPicture());
         holder.name.setText(profile.getName());
         holder.telNum.setText(profile.getTelNum());
+        //holder.email.setText(profile.getEmail());
+        //holder.birthDay.setText(profile.getBirthDay());
 
         // call 버튼 클릭 리스너 추가
         holder.callButton.setOnClickListener(v -> {

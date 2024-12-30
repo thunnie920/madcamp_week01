@@ -15,13 +15,8 @@
             app:destination="@id/contactFragment" />
     </fragment>
     <fragment
-        android:id="@+id/imageFragment"
-        android:name="com.example.week01_project2.ImageFragment"
-        android:label="fragment_image"
-        tools:layout="@layout/fragment_image" />
-    <fragment
         android:id="@+id/contactFragment"
-        android:name="com.example.week01_project2.ContactFragmentTemp"
+        android:name="com.example.week01_project2.ContactFragment"
         android:label="fragment_contact"
         tools:layout="@layout/fragment_contact" />
 </navigation>

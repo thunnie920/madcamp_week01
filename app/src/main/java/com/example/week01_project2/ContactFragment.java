@@ -2,6 +2,7 @@ package com.example.week01_project2;
 
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,13 +50,16 @@ public class ContactFragment extends Fragment {
         try {
             // AssetManager를 사용해 JSON 파일 읽기
             AssetManager assetManager = getContext().getAssets();
-            InputStream is = assetManager.open("profiles.json");
+            InputStream is = assetManager.open("contacts_info.json");
             byte[] buffer = new byte[is.available()];
             is.read(buffer);
             is.close();
 
             // JSON 파싱
             String json = new String(buffer, "UTF-8");
+            // JSON 데이터 로드 확인 로그
+            Log.d("ContactFragment", "JSON data: " + json);
+
             JSONArray jsonArray = new JSONArray(json);
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject obj = jsonArray.getJSONObject(i);
@@ -70,6 +74,8 @@ public class ContactFragment extends Fragment {
 
                 profileList.add(new Profile(picture, name, telNum, email, birthDay));
             }
+            // Profile 리스트 크기 확인 로그
+            Log.d("ContactFragment", "Profiles: " + profileList.size());
         } catch (Exception e) {
             e.printStackTrace();
         }
