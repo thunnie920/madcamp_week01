@@ -25,6 +25,7 @@ public class FanActivity2 extends AppCompatActivity {
     private ObjectAnimator rotateAnimator;
     private long baseDuration = 2000; // 기본 회전 시간
     private static final int SAMPLE_RATE = 16000; // 샘플링 레이트
+    private ObjectAnimator moveAlongRectangle; // 넙죽이 경로 애니메이션
     private static final int BUFFER_SIZE = AudioRecord.getMinBufferSize(
             SAMPLE_RATE,
             AudioFormat.CHANNEL_IN_MONO,
@@ -66,16 +67,18 @@ public class FanActivity2 extends AppCompatActivity {
         rotateAnimator.setRepeatCount(ObjectAnimator.INFINITE);
         rotateAnimator.setInterpolator(null);
         rotateAnimator.start();
-        speedUpButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                measureDecibelAndAdjustSpeed();
-            }
-        });
+
 
         // 넙죽이 움직이는 부분
         ImageView hotNupjuk = findViewById(R.id.hot_nupjuk);
+        moveAlongRectangle = createRectangleAnimation(hotNupjuk);
 
+        // 버튼 클릭 시 데시벨 측정 및 넙죽이 상태 변경
+        speedUpButton.setOnClickListener(v -> measureDecibelAndAdjustSpeed(hotNupjuk));
+
+    }
+
+    private ObjectAnimator createRectangleAnimation(ImageView hotNupjuk) {
         // 사각형 경로 정의
         Path rectanglePath = new Path();
         rectanglePath.moveTo(-200f, 0f); // 시작점 (왼쪽 아래)
@@ -84,18 +87,15 @@ public class FanActivity2 extends AppCompatActivity {
         rectanglePath.lineTo(-200f, -200f); // 왼쪽 위로 이동
         rectanglePath.lineTo(-200f, 0f); // 시작점으로 돌아옴
 
-        // ObjectAnimator를 사용해 궤적 애니메이션 생성
+        // ObjectAnimator 생성
         ObjectAnimator moveAlongRectangle = ObjectAnimator.ofFloat(hotNupjuk, "translationX", "translationY", rectanglePath);
-        moveAlongRectangle.setDuration(3000); // 4초 동안 사각형 이동
+        moveAlongRectangle.setDuration(3000); // 3초 동안 사각형 이동
         moveAlongRectangle.setRepeatCount(ValueAnimator.INFINITE); // 무한 반복
         moveAlongRectangle.setRepeatMode(ValueAnimator.RESTART); // 처음부터 다시 시작
-
-        // 애니메이션 시작
-        moveAlongRectangle.start();
-
+        return moveAlongRectangle;
     }
 
-    private void measureDecibelAndAdjustSpeed() {
+    private void measureDecibelAndAdjustSpeed(ImageView hotNupjuk) {
         // 권한 확인
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
                 != PackageManager.PERMISSION_GRANTED) {
@@ -142,10 +142,25 @@ public class FanActivity2 extends AppCompatActivity {
                 Log.d("FanActivity2", "Average Decibel: " + averageDecibel);
 
 // 측정 완료 메시지 표시
-                runOnUiThread(() -> Toast.makeText(FanActivity2.this,
+                runOnUiThread(() -> {
+                    Toast.makeText(FanActivity2.this,
                         "3초 측정 완료! 평균 데시벨: " + (int) averageDecibel + " dB",
-                        Toast.LENGTH_SHORT).show());
+                        Toast.LENGTH_SHORT).show();
 
+                    // 데시벨에 따른 넙죽이 상태 변경
+                    if (averageDecibel > 60) { // 데시벨 기준
+                        hotNupjuk.setImageResource(R.drawable.cool_nupjuk); // 시원한 넙죽이
+                        if (!moveAlongRectangle.isRunning()) {
+                            moveAlongRectangle.cancel(); // 넙죽이 움직이기
+                        }
+                    } else {
+                        hotNupjuk.setImageResource(R.drawable.hot_nupjuk); // 더운 넙죽이
+                        if (moveAlongRectangle.isRunning()) {
+                            moveAlongRectangle.start(); // 넙죽이 움직이기
+                        }
+                    }
+
+                });
 // 팬 속도 조정
                 adjustFanSpeed(averageDecibel);
 
@@ -187,5 +202,6 @@ public class FanActivity2 extends AppCompatActivity {
         }
         return Math.sqrt(sum / (read / 2.0));
     }
+
 
 }
