@@ -45,7 +45,7 @@
             android:id="@+id/contact_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="24dp"
             android:text="namenamename"
             android:textSize="16sp"
@@ -57,7 +57,7 @@
             android:id="@+id/contact_phoneNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="16dp"
             android:layout_marginBottom="24dp"
             android:text="01012345678"
             android:textSize="16sp"
@@ -65,26 +65,27 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/cardView_contact_image" />
 
-        <android.widget.Button
+        <android.widget.ImageButton
             android:id="@+id/call_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:layout_marginEnd="32dp"
             android:layout_marginBottom="16dp"
-            android:background="@drawable/button_background_2"
-            android:text="Call"
-            android:backgroundTint="@null"
+            android:background="@android:color/transparent"
+            android:src="@android:drawable/ic_menu_call"
+            android:scaleType="centerInside"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        <android.widget.Button
+        <android.widget.ImageButton
             android:id="@+id/text_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/button_background_2"
-            android:text="Text"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="22dp"
+            android:layout_marginEnd="32dp"
+            android:background="@android:color/transparent"
+            android:scaleType="centerInside"
+            android:src="@android:drawable/ic_dialog_email"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

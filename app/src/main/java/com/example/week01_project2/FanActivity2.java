@@ -12,7 +12,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.Manifest;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -42,6 +41,7 @@ public class FanActivity2 extends AppCompatActivity {
             }
         }
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,14 +58,11 @@ public class FanActivity2 extends AppCompatActivity {
         ImageView fanfan = findViewById(R.id.fanfan);
         Button speedUpButton = findViewById(R.id.speedUpButton);
 
-        // 팬 회전 애니메이션 초기화
         rotateAnimator = ObjectAnimator.ofFloat(fanfan, "rotation", 0f, 360f);
         rotateAnimator.setDuration(baseDuration);
         rotateAnimator.setRepeatCount(ObjectAnimator.INFINITE);
         rotateAnimator.setInterpolator(null);
         rotateAnimator.start();
-
-        // 버튼 클릭 이벤트
         speedUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
