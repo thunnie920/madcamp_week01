@@ -1,5 +1,6 @@
 package com.example.week01_project2;
 
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -7,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -67,8 +69,24 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.CustomVi
                 intent.putExtra("email", profile.getEmail());
                 intent.putExtra("birthday", profile.getBirthDay());
 
-                // detail page로 이동
+                // DetailActivity 실행
                 parent.getContext().startActivity(intent);
+            }
+        });
+
+// 사진 클릭 이벤트 추가
+        holder.itemView.findViewById(R.id.contact_image).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 사진 애니메이션
+                ObjectAnimator animator = ObjectAnimator.ofFloat(
+                        v, // 클릭된 ImageView (사진)
+                        "translationY",
+                        v.getHeight() * 2 // 아래로 이동
+                );
+                animator.setDuration(500); // 애니메이션 지속 시간
+                animator.setInterpolator(new LinearInterpolator()); // 일정한 속도
+                animator.start(); // 애니메이션 시작
             }
         });
 

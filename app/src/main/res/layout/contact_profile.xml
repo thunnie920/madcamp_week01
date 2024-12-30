@@ -218,5 +218,7 @@
             app:layout_constraintTop_toBottomOf="@+id/bbox_info"
             app:srcCompat="@drawable/file" />
 
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,6 @@
 package com.example.week01_project2;
 
+import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
@@ -14,15 +15,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import org.w3c.dom.Text;
-
 public class DetailActivity extends AppCompatActivity {
 
     ImageButton textButton;
     ImageButton callButton;
     ImageButton videoButton;
     ImageView nupjuk;
+
+    private float currentRotationSpeed = 2000; // 초기 회전 속도
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,20 +107,40 @@ public class DetailActivity extends AppCompatActivity {
             }
         });
 
-        // 버튼 애니메이션 추가 (속도 빠르게)
-        setupButtonAnimation(nupjuk, 0f, 500f, 500);
+        // 좌우 왕복 애니메이션 시작
+        setupHorizontalAnimation(nupjuk, 0f, 500f, 500);
+
+        // 넙죽이를 클릭하면 회전 애니메이션 시작
+        nupjuk.setOnClickListener(v -> {
+            setupRotationAnimation(nupjuk, (long) currentRotationSpeed);
+            currentRotationSpeed = Math.max(500, currentRotationSpeed - 200); // 클릭할수록 속도 증가
+        });
     }
-    private void setupButtonAnimation(View button, float startX, float endX, long duration) {
+
+    private void setupHorizontalAnimation(View view, float startX, float endX, long duration) {
         ObjectAnimator animator = ObjectAnimator.ofFloat(
-                button,
+                view,
                 "translationX",
                 startX,
                 endX
         );
-        animator.setDuration(duration); // 애니메이션 지속 시간 (500ms)
+        animator.setDuration(duration); // 애니메이션 지속 시간
         animator.setRepeatCount(ObjectAnimator.INFINITE); // 무한 반복
         animator.setRepeatMode(ObjectAnimator.REVERSE); // 왕복 애니메이션
         animator.setInterpolator(new LinearInterpolator()); // 일정한 속도
+        animator.start(); // 애니메이션 시작
+    }
+
+    private void setupRotationAnimation(View view, long duration) {
+        ObjectAnimator animator = ObjectAnimator.ofFloat(
+                view,
+                "rotation",
+                0f,
+                360f
+        );
+        animator.setDuration(duration); // 회전 속도
+        animator.setInterpolator(new LinearInterpolator()); // 일정한 속도
+        animator.setRepeatCount(ObjectAnimator.INFINITE); // 무한 반복
         animator.start(); // 애니메이션 시작
     }
 }
