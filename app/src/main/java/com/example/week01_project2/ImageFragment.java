@@ -17,7 +17,6 @@ public class ImageFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        // FragmentContactBinding을 사용하여 레이아웃 바인딩
         binding = FragmentImageBinding.inflate(inflater, container, false);
 
         // View와 동작 설정 (필요한 경우 추가)

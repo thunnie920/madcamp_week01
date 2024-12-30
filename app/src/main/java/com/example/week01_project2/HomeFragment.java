@@ -1,5 +1,6 @@
 package com.example.week01_project2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,9 +27,15 @@ public class HomeFragment extends Fragment {
                 Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_contactFragment)
         );
 
-        binding.buttonImage.setOnClickListener(view ->
-                Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_imageFragment)
-        );
+        binding.buttonImage.setOnClickListener(view -> {
+            Intent intent = new Intent(requireContext(), GalleryActivity.class);
+            startActivity(intent);
+        });
+
+        binding.buttonElse.setOnClickListener(view -> {
+            Intent intent = new Intent(requireContext(), FanActivity.class);
+            startActivity(intent);
+        });
 
         return binding.getRoot();
     }
