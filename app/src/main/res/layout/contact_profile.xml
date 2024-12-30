@@ -18,51 +18,65 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
 
-        <ImageView
-            android:id="@+id/contact_image"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
             android:layout_width="365dp"
             android:layout_height="271dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.117"
-            app:srcCompat="@drawable/p1" />
+            app:layout_constraintVertical_bias="0.117">
+
+            <ImageView
+                android:id="@+id/contact_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/p1" />
+
+        </androidx.cardview.widget.CardView>
+
 
         <android.widget.Button
             android:id="@+id/button_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
             android:background="@drawable/button_background_2"
             android:text="Text"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/contact_image" />
+            app:layout_constraintTop_toBottomOf="@id/cardView" />
 
         <android.widget.Button
             android:id="@+id/button_call"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:background="@drawable/button_background_2"
             android:text="Call"
             app:layout_constraintEnd_toStartOf="@+id/button_video"
             app:layout_constraintStart_toEndOf="@+id/button_text"
-            app:layout_constraintTop_toBottomOf="@+id/contact_image" />
+            app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
         <android.widget.Button
             android:id="@+id/button_video"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/button_background_2"
             android:text="Video"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/contact_image" />
+            app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
 
         <!-- 새로운 박스 추가 -->

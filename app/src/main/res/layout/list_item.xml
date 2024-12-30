@@ -19,17 +19,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/contact_image"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView_contact_image"
             android:layout_width="135dp"
             android:layout_height="135dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="4dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/p1" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/contact_image"
+                android:layout_width="141dp"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/p1" />
+
+        </androidx.cardview.widget.CardView>
 
         <TextView
             android:id="@+id/contact_name"
@@ -40,20 +50,20 @@
             android:text="namenamename"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@id/contact_image"
-            app:layout_constraintTop_toTopOf="@id/contact_image" />
+            app:layout_constraintStart_toEndOf="@+id/cardView_contact_image"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/contact_phoneNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="84dp"
+            android:layout_marginBottom="24dp"
             android:text="01012345678"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@id/contact_image"
-            app:layout_constraintTop_toTopOf="@id/contact_image" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/cardView_contact_image" />
 
         <android.widget.Button
             android:id="@+id/call_button"
