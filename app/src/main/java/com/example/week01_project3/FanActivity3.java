@@ -1,6 +1,8 @@
-package com.example.week01_project2;
+package com.example.week01_project3;
 
 import android.Manifest;
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -8,10 +10,11 @@ import android.speech.RecognitionListener;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
 import android.speech.tts.TextToSpeech;
-import android.speech.tts.UtteranceProgressListener;
+import android.view.View;
 import android.widget.Toast;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -27,7 +30,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Body;
 import retrofit2.http.POST;
 
-public class FanActivity3 extends AppCompatActivity {
+public class FanActivity3 implements View.OnClickListener {
 
     private SpeechRecognizer speechRecognizer;
     private TextToSpeech textToSpeech;
@@ -35,54 +38,39 @@ public class FanActivity3 extends AppCompatActivity {
     private ConstraintLayout layout;
     private static final int REQUEST_RECORD_AUDIO_PERMISSION = 1;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.fan);
+    private static final String BASE_URL = "http://143.248.191.72:5000/";
 
-        layout = findViewById(R.id.fan_layout);
-        layout.setBackgroundResource(R.drawable.hot_background); // 기본 시작 배경화면
+    private final Context context;
+    private final boolean isHot;
 
-        // 오디오 권한 확인
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.RECORD_AUDIO}, REQUEST_RECORD_AUDIO_PERMISSION);
-        } else {
-            initializeSpeechRecognition();
-        }
+    // ★ 생성자 오버로딩
+    public FanActivity3(Context context, boolean isHot) {
+        this.context = context;
+        this.isHot = isHot;
 
-        // Retrofit 설정
+        // Retrofit 초기화
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://143.248.191.72:5000") // Flask 서버 IP 입력
+                .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         api = retrofit.create(GPTApi.class);
-
-        // TTS 초기화
-        textToSpeech = new TextToSpeech(this, status -> {
-            if (status == TextToSpeech.SUCCESS) {
-                textToSpeech.setLanguage(Locale.getDefault());
-                textToSpeech.setOnUtteranceProgressListener(new UtteranceProgressListener() {
-                    @Override
-                    public void onStart(String utteranceId) {}
-
-                    @Override
-                    public void onDone(String utteranceId) {
-                        runOnUiThread(() -> startListening());
-                    }
-
-                    @Override
-                    public void onError(String utteranceId) {}
-                });
-            }
-        });
     }
 
+
     private void initializeSpeechRecognition() {
-        speechRecognizer = SpeechRecognizer.createSpeechRecognizer(this);
+
+        if (ContextCompat.checkSelfPermission(context, Manifest.permission.RECORD_AUDIO)
+                != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions((Activity) context,
+                    new String[]{Manifest.permission.RECORD_AUDIO}, 1000);
+            return;
+        }
+        speechRecognizer = SpeechRecognizer.createSpeechRecognizer(context);
         speechRecognizer.setRecognitionListener(new RecognitionListener() {
+
             @Override
             public void onReadyForSpeech(Bundle params) {
-                Toast.makeText(FanActivity3.this, "말씀하세요...", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "말씀하세요...", Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -99,15 +87,15 @@ public class FanActivity3 extends AppCompatActivity {
 
             @Override
             public void onError(int error) {
-                Toast.makeText(FanActivity3.this, "음성 인식 오류 발생!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "음성 인식 오류 발생!", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onResults(Bundle results) {
                 ArrayList<String> matches = results.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
                 if (matches != null && !matches.isEmpty()) {
-                    String userInput = matches.get(0);
-                    sendToServer(userInput);
+                    // 사용자가 말한 문장 matches.get(0)을 서버로 전송
+                    sendToServer(matches.get(0));
                 }
             }
 
@@ -129,7 +117,18 @@ public class FanActivity3 extends AppCompatActivity {
     }
 
     private void sendToServer(String userInput) {
-        GPTRequest request = new GPTRequest("넌 지금 너무 더워서 까칠한 상태야. 날카롭고 앙칼지게 대답해.", userInput);
+        // isHot 상태에 따라 다른 system_input 사용
+        String systemInput;
+        if (isHot) {
+            systemInput = "넌 지금 너무 더워서 까칠한 상태야. 날카롭고 앙칼지게 대답해.";
+            Toast.makeText(context, "hot", Toast.LENGTH_SHORT).show();
+        } else {
+            systemInput = "넌 지금 시원해진 상태야. 다정하고 부드럽게 대답해.";
+            Toast.makeText(context, "cold", Toast.LENGTH_SHORT).show();
+        }
+
+        // 이제 systemInput을 포함하여 서버로 전송
+        GPTRequest request = new GPTRequest(systemInput, userInput);
 
         api.chat(request).enqueue(new Callback<GPTResponse>() {
             @Override
@@ -137,30 +136,44 @@ public class FanActivity3 extends AppCompatActivity {
                 if (response.isSuccessful() && response.body() != null) {
                     speak(response.body().getText());
                 } else {
-                    Toast.makeText(FanActivity3.this, "응답 실패", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "응답 실패", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<GPTResponse> call, Throwable t) {
-                Toast.makeText(FanActivity3.this, "네트워크 오류 발생!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "네트워크 오류 발생! " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
 
     private void speak(String text) {
-        textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null, null);
+        // TTS 코드
+        if (textToSpeech == null) {
+            textToSpeech = new TextToSpeech(context, status -> {
+                if (status == TextToSpeech.SUCCESS) {
+                    textToSpeech.setLanguage(Locale.KOREAN);
+                    textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null, "tts1");
+                }
+            });
+        } else {
+            textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null, "tts1");
+        }
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
+    public void destroy() {
         if (speechRecognizer != null) {
             speechRecognizer.destroy();
+            speechRecognizer = null;
         }
         if (textToSpeech != null) {
             textToSpeech.shutdown();
         }
+    }
+
+    @Override
+    public void onClick(View v) {
+        initializeSpeechRecognition();
     }
 
     public interface GPTApi {
@@ -185,4 +198,6 @@ public class FanActivity3 extends AppCompatActivity {
             return text;
         }
     }
+
+
 }

@@ -1,4 +1,4 @@
-package com.example.week01_project2;
+package com.example.week01_project3;
 
 import android.animation.ObjectAnimator;
 import android.content.Intent;
@@ -13,7 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
-import com.example.week01_project2.databinding.FragmentHomeBinding;
+import com.example.week01_project3.databinding.FragmentHomeBinding;
 
 public class HomeFragment extends Fragment {
     private FragmentHomeBinding binding;
@@ -35,7 +35,7 @@ public class HomeFragment extends Fragment {
         });
 
         binding.buttonElse.setOnClickListener(view -> {
-            Intent intent = new Intent(requireContext(), FanActivity.class);
+            Intent intent = new Intent(requireContext(), FanActivity2.class);
             startActivity(intent);
         });
 

@@ -1,4 +1,4 @@
-package com.example.week01_project2;
+package com.example.week01_project3;
 
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.Manifest;
@@ -29,12 +30,15 @@ public class FanActivity2 extends AppCompatActivity {
     private ObjectAnimator rotateAnimator;
     private ObjectAnimator moveAlongRectangle;
     private boolean isStopped = true;
+    private boolean isHot; // 기본 상태 더움
+
 
     // Handler를 메인 스레드의 Looper와 연결
     private Handler decayHandler = new Handler(Looper.getMainLooper());
     private Runnable decayRunnable;
     private Handler setHotHandler = new Handler(Looper.getMainLooper());
     private Runnable setHotRunnable;
+    private FanActivity3 fanActivity3;
 
     private static final int SAMPLE_RATE = 16000;
     private static final int BUFFER_SIZE = AudioRecord.getMinBufferSize(
@@ -42,6 +46,7 @@ public class FanActivity2 extends AppCompatActivity {
             AudioFormat.CHANNEL_IN_MONO,
             AudioFormat.ENCODING_PCM_16BIT
     );
+    /*
     private void updateNupjukSpeed(long fanSpeedDuration, boolean isCool) {
         long nupjukSpeedDuration;
 
@@ -57,7 +62,8 @@ public class FanActivity2 extends AppCompatActivity {
         }
 
         Log.d("FanActivity2", "Nupjuk Speed Updated: " + nupjukSpeedDuration + " ms (Cool: " + isCool + ")");
-    }
+    }*/
+
     @Override
     public void onRequestPermissionsResult(int requestCode,
                                            @NonNull String[] permissions,
@@ -100,23 +106,41 @@ public class FanActivity2 extends AppCompatActivity {
 
         // 버튼 클릭 시 데시벨 측정 후 팬 속도 & 상태 조절
         speedUpButton.setOnClickListener(v -> measureDecibelAndAdjustSpeed());
+
+        // FanActivity3 객체 초기화 (isHot 상태 전달)
+        //fanActivity3 = new FanActivity3(this, isHot);
+        //fanActivity3 = new FanActivity3(this);
+
+        // Talk! 버튼 리스너 설정
+        //findViewById(R.id.talkButton).setOnClickListener(fanActivity3);
+
+        /*
+        findViewById(R.id.talkButton).setOnClickListener(
+                new FanActivity3(this, isHot)
+        );*/
+        findViewById(R.id.talkButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 최신 isHot 값 사용
+                fanActivity3 = new FanActivity3(v.getContext(), isHot);
+                fanActivity3.onClick(v); // 클릭 이벤트 처리
+            }
+        });
     }
 
-    /**
-     * Hot 상태로 즉시 전환
-     */
+    // hot 상태
     private void set_hot() {
         layout.setBackgroundResource(R.drawable.hot_background);
         nupjuk.setImageResource(R.drawable.hot_nupjuk);
+        isHot = true;
         Log.d("FanActivity2", "상태 변경: Hot");
     }
 
-    /**
-     * Cool 상태로 즉시 전환
-     */
+    // cool 상태
     private void set_cool() {
         layout.setBackgroundResource(R.drawable.cool_background);
         nupjuk.setImageResource(R.drawable.cool_nupjuk);
+        isHot = false;
         Log.d("FanActivity2", "상태 변경: Cool");
     }
 
@@ -200,7 +224,8 @@ public class FanActivity2 extends AppCompatActivity {
                 Log.d("FanActivity2", "Average Decibel: " + averageDecibel);
 
                 // 데시벨 -> 팬 지속 시간 변환
-                averageDecibel = Math.max(10, Math.min(averageDecibel, 70)); // 10~70 범위로 제한
+                //averageDecibel = Math.max(10, Math.min(averageDecibel, 70)); // 10~70 범위로 제한
+                averageDecibel = 50;
                 long duration = (long) (3800 * Math.exp(-0.1 * (averageDecibel - 20)) + 200);
 
                 final double averageDecibelFinal = averageDecibel; // final 변수로 복사
@@ -298,24 +323,6 @@ public class FanActivity2 extends AppCompatActivity {
         startSpeedDecay();
     }
 
-    /**
-     * 오디오 권한 요청 결과 처리
-     */
-    @Override
-    public void onRequestPermissionsResult(int requestCode,
-                                           @NonNull String[] permissions,
-                                           @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == 1000) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                Log.d("FanActivity2", "RECORD_AUDIO 권한 허용됨");
-            } else {
-                Log.d("FanActivity2", "RECORD_AUDIO 권한 거부됨");
-                Toast.makeText(this, "마이크 권한이 필요합니다.", Toast.LENGTH_SHORT).show();
-                finish();
-            }
-        }
-    }
 
     @Override
     protected void onDestroy() {

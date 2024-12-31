@@ -1,4 +1,4 @@
-package com.example.week01_project2;
+package com.example.week01_project3;
 
 import android.animation.ObjectAnimator;
 import android.content.Context;
@@ -65,6 +65,7 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.CustomVi
                 int cursorPosition = holder.getAdapterPosition();
                 Profile profile = profileList.get(cursorPosition);
 
+                // DetailActivity로 이동
                 Intent intent = new Intent(parent.getContext(), DetailActivity.class);
                 intent.putExtra("picture", profile.getPicture());
                 intent.putExtra("name", profile.getName());
@@ -72,8 +73,11 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.CustomVi
                 intent.putExtra("email", profile.getEmail());
                 intent.putExtra("birthday", profile.getBirthDay());
 
-                // DetailActivity 실행
                 parent.getContext().startActivity(intent);
+
+                // 이 페이지를 완전히 초기화
+                RecyclerView recyclerView = (RecyclerView) parent;
+                recyclerView.setAdapter(new ProfileAdapter(profileList)); // 새 Adapter 설정
             }
         });
 

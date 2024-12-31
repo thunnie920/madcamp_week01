@@ -1,4 +1,4 @@
-package com.example.week01_project2;
+package com.example.week01_project3;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -21,6 +21,7 @@ import androidx.core.content.FileProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.week01_project3.ImageAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.io.File;
@@ -94,7 +95,7 @@ public class GalleryActivity extends AppCompatActivity {
                 if (photoFile != null) {
                     photoUri = FileProvider.getUriForFile(
                             this,
-                            "com.example.week01_project2.fileprovider",
+                            "com.example.week01_project3.fileprovider",
                             photoFile
                     );
                     Log.d("GalleryActivity", "Photo URI: " + photoUri.toString());
