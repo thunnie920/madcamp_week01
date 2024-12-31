@@ -7,25 +7,26 @@
     android:layout_height="match_parent"
     android:id="@+id/fan_layout">
 
-<!--    <ImageView-->
-<!--        android:id="@+id/fan"-->
-<!--        android:layout_width="379dp"-->
-<!--        android:layout_height="437dp"-->
-<!--        android:layout_marginStart="16dp"-->
-<!--        android:layout_marginTop="124dp"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:srcCompat="@drawable/fan" />-->
-
     <ImageView
         android:id="@+id/fanfan"
         android:layout_width="244dp"
         android:layout_height="261dp"
-        android:layout_marginStart="84dp"
         android:layout_marginTop="162dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/wow" />
+
+    <ImageView
+        android:id="@+id/hot_nupjuk"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="36dp"
+        app:layout_constraintBottom_toTopOf="@+id/speedUpButton"
+        app:layout_constraintTop_toBottomOf="@+id/fanfan"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/hot_nupjuk" />
 
     <android.widget.Button
         android:id="@+id/speedUpButton"
@@ -34,21 +35,21 @@
         android:text="Blow!"
         android:background="@drawable/button_background_2"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/talkButton"
         app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp" />
 
-    <ImageView
-        android:id="@+id/hot_nupjuk"
-        android:layout_width="300dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/speedUpButton"
-        app:layout_constraintTop_toBottomOf="@+id/fanfan"
-        app:layout_constraintStart_toStartOf="parent"
+    <android.widget.Button
+        android:id="@+id/talkButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Talk!"
+        android:background="@drawable/button_background_2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/speedUpButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/hot_nupjuk"
-        tools:layout_editor_absoluteX="55dp" />
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

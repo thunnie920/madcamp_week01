@@ -211,7 +211,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <ImageView
-            android:id="@+id/nupjuk"
+            android:id="@+id/hot_nupjuk"
             android:layout_width="161dp"
             android:layout_height="307dp"
             app:layout_constraintBottom_toBottomOf="parent"

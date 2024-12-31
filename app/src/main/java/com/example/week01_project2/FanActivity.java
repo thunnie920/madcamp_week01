@@ -1,44 +1,38 @@
 package com.example.week01_project2;
 
-import android.animation.ObjectAnimator;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class FanActivity extends AppCompatActivity {
 
-    private ObjectAnimator rotateAnimator;
-    private long currentDuration = 2000;
-
+    private ConstraintLayout layout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fan);
 
-        ImageView fanfan = findViewById(R.id.fanfan);
-        Button speedUpButton = findViewById(R.id.speedUpButton);
+        layout = findViewById(R.id.fan_layout);
+        layout.setBackgroundResource(R.drawable.hot_background); // 기본 시작 배경화면
 
-        rotateAnimator = ObjectAnimator.ofFloat(fanfan, "rotation", 0f, 360f);
-        rotateAnimator.setDuration(currentDuration);
-        rotateAnimator.setRepeatCount(ObjectAnimator.INFINITE);
-        rotateAnimator.setInterpolator(null); // 일정한 속도로 회전
-        rotateAnimator.start();
-
-        speedUpButton.setOnClickListener(new View.OnClickListener() {
+        // 버튼을 클릭 이벤트에 연결
+        findViewById(R.id.speedUpButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (currentDuration > 20) {
-                    currentDuration = (int) (currentDuration *0.95);
-                }
+                // Blow! 버튼 클릭 시 FanActivity2로 이동
+                Intent intent = new Intent(FanActivity.this, FanActivity2.class);
+                startActivity(intent);
+            }
+        });
 
-                float currentPlayTime = rotateAnimator.getCurrentPlayTime();
-                rotateAnimator.cancel();
-                rotateAnimator.setDuration(currentDuration);
-                rotateAnimator.start();
-                rotateAnimator.setCurrentPlayTime((long) currentPlayTime);
+        findViewById(R.id.talkButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Elon! 버튼 클릭 시 FanActivity3로 이동
+                Intent intent = new Intent(FanActivity.this, FanActivity3.class);
+                startActivity(intent);
             }
         });
     }

@@ -37,6 +37,7 @@ public class FanActivity2 extends AppCompatActivity {
             AudioFormat.CHANNEL_IN_MONO,
             AudioFormat.ENCODING_PCM_16BIT
     );
+    // 넙죽이 더울때 / 추울때 속도
     private void updateNupjukSpeed(long fanSpeedDuration, boolean isCool) {
         long nupjukSpeedDuration;
 
@@ -54,6 +55,7 @@ public class FanActivity2 extends AppCompatActivity {
         Log.d("FanActivity2", "Nupjuk Speed Updated: " + nupjukSpeedDuration + " ms (Cool: " + isCool + ")");
     }
     @Override
+    // 오디오 사용 권한
     public void onRequestPermissionsResult(int requestCode,
                                            @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
@@ -74,7 +76,7 @@ public class FanActivity2 extends AppCompatActivity {
         setContentView(R.layout.fan);
 
         layout = findViewById(R.id.fan_layout);
-        layout.setBackgroundResource(R.drawable.hot_background);
+        layout.setBackgroundResource(R.drawable.hot_background); // 기본 시작 배경화면
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
                 != PackageManager.PERMISSION_GRANTED) {
@@ -87,13 +89,13 @@ public class FanActivity2 extends AppCompatActivity {
         Button speedUpButton = findViewById(R.id.speedUpButton);
 
         rotateAnimator = ObjectAnimator.ofFloat(fanfan, "rotation", 0f, 360f);
-        rotateAnimator.setDuration(baseDuration);
+        rotateAnimator.setDuration(baseDuration); // baseDuration: 2000. 동안 움직이나..
         rotateAnimator.setRepeatCount(ObjectAnimator.INFINITE);
         rotateAnimator.setInterpolator(null);
         rotateAnimator.start();
 
         moveAlongRectangle = createRectangleAnimation(nupjuk);
-        double initialDecibel = 0;
+        double initialDecibel = 0; // 초기는 아무말 안하니 데시벨 0
         adjustRectangleAnimationSpeed(initialDecibel);
         nupjuk.setImageResource(R.drawable.hot_nupjuk);
         moveAlongRectangle.start();
@@ -101,7 +103,7 @@ public class FanActivity2 extends AppCompatActivity {
         speedUpButton.setOnClickListener(v -> measureDecibelAndAdjustSpeed(nupjuk));
         startSpeedDecay();
     }
-
+// funfun
     private ObjectAnimator createRectangleAnimation(ImageView hotNupjuk) {
         Path rectanglePath = new Path();
         rectanglePath.moveTo(-200f, 100f);

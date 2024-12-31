@@ -35,7 +35,7 @@ public class HomeFragment extends Fragment {
         });
 
         binding.buttonElse.setOnClickListener(view -> {
-            Intent intent = new Intent(requireContext(), FanActivity2.class);
+            Intent intent = new Intent(requireContext(), FanActivity.class);
             startActivity(intent);
         });
 
