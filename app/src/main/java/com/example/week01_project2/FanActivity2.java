@@ -3,11 +3,13 @@ package com.example.week01_project2;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.pm.PackageManager;
+import android.graphics.Path;
 import android.media.AudioFormat;
 import android.media.AudioRecord;
 import android.media.MediaRecorder;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -18,18 +20,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import android.graphics.Path;
 
 public class FanActivity2 extends AppCompatActivity {
-    private Handler speedHandler = new Handler();
-    private long autoDecayInterval = 2000;
-    private float decayFactor = 1.1f;
-    private boolean isDecaying = true;
-    private boolean isStopped = false;
+    private ConstraintLayout layout;
+    private ImageView fanfan;
+    private ImageView nupjuk;
+    private Button speedUpButton;
     private ObjectAnimator rotateAnimator;
     private ObjectAnimator moveAlongRectangle;
-    private long baseDuration = 2000;
-    private ConstraintLayout layout;
+    private boolean isStopped = true;
+
+    // Handler를 메인 스레드의 Looper와 연결
+    private Handler decayHandler = new Handler(Looper.getMainLooper());
+    private Runnable decayRunnable;
+    private Handler setHotHandler = new Handler(Looper.getMainLooper());
+    private Runnable setHotRunnable;
 
     private static final int SAMPLE_RATE = 16000;
     private static final int BUFFER_SIZE = AudioRecord.getMinBufferSize(
@@ -37,7 +42,6 @@ public class FanActivity2 extends AppCompatActivity {
             AudioFormat.CHANNEL_IN_MONO,
             AudioFormat.ENCODING_PCM_16BIT
     );
-    // 넙죽이 더울때 / 추울때 속도
     private void updateNupjukSpeed(long fanSpeedDuration, boolean isCool) {
         long nupjukSpeedDuration;
 
@@ -55,7 +59,6 @@ public class FanActivity2 extends AppCompatActivity {
         Log.d("FanActivity2", "Nupjuk Speed Updated: " + nupjukSpeedDuration + " ms (Cool: " + isCool + ")");
     }
     @Override
-    // 오디오 사용 권한
     public void onRequestPermissionsResult(int requestCode,
                                            @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
@@ -76,34 +79,67 @@ public class FanActivity2 extends AppCompatActivity {
         setContentView(R.layout.fan);
 
         layout = findViewById(R.id.fan_layout);
-        layout.setBackgroundResource(R.drawable.hot_background); // 기본 시작 배경화면
+        fanfan = findViewById(R.id.fanfan);
+        nupjuk = findViewById(R.id.hot_nupjuk);
+        speedUpButton = findViewById(R.id.speedUpButton);
 
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
-                != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.RECORD_AUDIO}, 1000);
-        }
+        set_hot();
 
-        ImageView fanfan = findViewById(R.id.fanfan);
-        ImageView nupjuk = findViewById(R.id.hot_nupjuk);
-        Button speedUpButton = findViewById(R.id.speedUpButton);
-
+        // 팬 회전 애니메이션 (초기에는 멈춤)
         rotateAnimator = ObjectAnimator.ofFloat(fanfan, "rotation", 0f, 360f);
-        rotateAnimator.setDuration(baseDuration); // baseDuration: 2000. 동안 움직이나..
-        rotateAnimator.setRepeatCount(ObjectAnimator.INFINITE);
-        rotateAnimator.setInterpolator(null);
-        rotateAnimator.start();
+        rotateAnimator.setDuration(2000); // 기본 회전 속도
+        rotateAnimator.setRepeatCount(ValueAnimator.INFINITE); // 무한 반복
+        rotateAnimator.setInterpolator(null); // 선형 인터폴레이터
 
+        // 넙죽이 사각 경로 이동 애니메이션
         moveAlongRectangle = createRectangleAnimation(nupjuk);
-        double initialDecibel = 0; // 초기는 아무말 안하니 데시벨 0
-        adjustRectangleAnimationSpeed(initialDecibel);
-        nupjuk.setImageResource(R.drawable.hot_nupjuk);
+        moveAlongRectangle.setDuration(3000);
+        moveAlongRectangle.setRepeatCount(ValueAnimator.INFINITE);
+        moveAlongRectangle.setRepeatMode(ValueAnimator.RESTART);
         moveAlongRectangle.start();
 
-        speedUpButton.setOnClickListener(v -> measureDecibelAndAdjustSpeed(nupjuk));
-        startSpeedDecay();
+        // 버튼 클릭 시 데시벨 측정 후 팬 속도 & 상태 조절
+        speedUpButton.setOnClickListener(v -> measureDecibelAndAdjustSpeed());
     }
-// funfun
+
+    /**
+     * Hot 상태로 즉시 전환
+     */
+    private void set_hot() {
+        layout.setBackgroundResource(R.drawable.hot_background);
+        nupjuk.setImageResource(R.drawable.hot_nupjuk);
+        Log.d("FanActivity2", "상태 변경: Hot");
+    }
+
+    /**
+     * Cool 상태로 즉시 전환
+     */
+    private void set_cool() {
+        layout.setBackgroundResource(R.drawable.cool_background);
+        nupjuk.setImageResource(R.drawable.cool_nupjuk);
+        Log.d("FanActivity2", "상태 변경: Cool");
+    }
+
+    /**
+     * 일정 시간 후에 Hot 상태로 전환 (타이머)
+     */
+    private void scheduleSetHot() {
+        // 이전 예약 취소
+        if (setHotRunnable != null) {
+            setHotHandler.removeCallbacks(setHotRunnable);
+        }
+        // 5초 후 Hot
+        setHotRunnable = () -> {
+            set_hot();
+            Log.d("FanActivity2", "set_hot() 호출됨 (타이머 완료)");
+        };
+        setHotHandler.postDelayed(setHotRunnable, 5000);
+        Log.d("FanActivity2", "set_hot() 타이머 시작됨 (5초 후 호출)");
+    }
+
+    /**
+     * 넙죽이 사각 경로 이동 애니메이션 생성
+     */
     private ObjectAnimator createRectangleAnimation(ImageView hotNupjuk) {
         Path rectanglePath = new Path();
         rectanglePath.moveTo(-200f, 100f);
@@ -112,31 +148,10 @@ public class FanActivity2 extends AppCompatActivity {
         rectanglePath.lineTo(-200f, -200f);
         rectanglePath.lineTo(-200f, 100f);
 
-        ObjectAnimator moveAlongRectangle = ObjectAnimator.ofFloat(hotNupjuk, "translationX", "translationY", rectanglePath);
-        moveAlongRectangle.setDuration(3000);
-        moveAlongRectangle.setRepeatCount(ValueAnimator.INFINITE);
-        moveAlongRectangle.setRepeatMode(ValueAnimator.RESTART);
-        return moveAlongRectangle;
+        return ObjectAnimator.ofFloat(hotNupjuk, "translationX", "translationY", rectanglePath);
     }
 
-    private void adjustRectangleAnimationSpeed(double decibel) {
-        if (decibel < 10) decibel = 10;
-        if (decibel > 70) decibel = 70;
-
-        long newDuration = (long) (500 + (decibel - 10) * 100);
-
-        runOnUiThread(() -> {
-            if (moveAlongRectangle != null) {
-                moveAlongRectangle.setDuration(newDuration);
-                if (!moveAlongRectangle.isRunning()) {
-                    moveAlongRectangle.start();
-                }
-                Log.d("FanActivity2", "Adjusted Rectangle Animation Speed. New Duration: " + newDuration);
-            }
-        });
-    }
-
-    private void measureDecibelAndAdjustSpeed(ImageView nupjuk) {
+    private void measureDecibelAndAdjustSpeed() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
                 != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this,
@@ -163,11 +178,17 @@ public class FanActivity2 extends AppCompatActivity {
                 double totalDecibel = 0;
                 int sampleCount = 0;
 
-                while (System.currentTimeMillis() - startTime < 3000) {
+                while (System.currentTimeMillis() - startTime < 3000) { // 3초 동안 측정
                     int read = audioRecord.read(buffer, 0, buffer.length);
                     if (read > 0) {
-                        double rms = calculateRMS(buffer, read);
-                        double decibel = 20 * Math.log10(rms);
+                        long sum = 0;
+                        for (int i = 0; i < read; i += 2) {
+                            if (i + 1 >= buffer.length) break;
+                            short sample = (short) ((buffer[i + 1] << 8) | (buffer[i] & 0xFF));
+                            sum += sample * sample;
+                        }
+                        double rms = Math.sqrt(sum / (read / 2.0));
+                        double decibel = 20 * Math.log10(rms == 0 ? 1 : rms);
                         if (decibel > 0) {
                             totalDecibel += decibel;
                             sampleCount++;
@@ -178,23 +199,22 @@ public class FanActivity2 extends AppCompatActivity {
                 double averageDecibel = sampleCount > 0 ? totalDecibel / sampleCount : 0;
                 Log.d("FanActivity2", "Average Decibel: " + averageDecibel);
 
+                // 데시벨 -> 팬 지속 시간 변환
+                averageDecibel = Math.max(10, Math.min(averageDecibel, 70)); // 10~70 범위로 제한
+                long duration = (long) (3800 * Math.exp(-0.1 * (averageDecibel - 20)) + 200);
+
+                final double averageDecibelFinal = averageDecibel; // final 변수로 복사
                 runOnUiThread(() -> {
-                    Toast.makeText(FanActivity2.this,
-                            "3초 측정 완료! 평균 데시벨: " + (int) averageDecibel + " dB",
-                            Toast.LENGTH_SHORT).show();
-
-                    if (averageDecibel > 60) {
-                        nupjuk.setImageResource(R.drawable.cool_nupjuk);
-                        layout.setBackgroundResource(R.drawable.cool_background);
+                    Toast.makeText(this,
+                            "평균 데시벨: " + (int) averageDecibelFinal + " dB\n" +
+                                    "지속 시간: " + duration + " ms",
+                            Toast.LENGTH_SHORT).show();if (averageDecibelFinal > 40) {
+                        set_cool();
                     } else {
-                        nupjuk.setImageResource(R.drawable.hot_nupjuk);
-                        layout.setBackgroundResource(R.drawable.hot_background);
+                        scheduleSetHot();
                     }
-
-                    adjustRectangleAnimationSpeed(averageDecibel);
+                    adjustFanSpeed(duration);
                 });
-
-                adjustFanSpeed(averageDecibel);
 
             } catch (Exception e) {
                 Log.e("FanActivity2", "Error during audio recording", e);
@@ -209,79 +229,105 @@ public class FanActivity2 extends AppCompatActivity {
     }
 
     private void startSpeedDecay() {
-        speedHandler.postDelayed(new Runnable() {
+        // 기존 decayRunnable 제거
+        if (decayRunnable != null) {
+            decayHandler.removeCallbacks(decayRunnable);
+        }
+
+        decayRunnable = new Runnable() {
             @Override
             public void run() {
-                if (isDecaying && !isStopped) {
+                if (!isStopped) {
                     long currentDuration = rotateAnimator.getDuration();
-                    long stopTime = (long) (currentDuration);
+                    long plus = (long) (0.25 * currentDuration);
+                    if(currentDuration<400) plus = 20;
+                    // 감속 로직: 지속 시간을 점진적으로 증가
+                    long newDuration = currentDuration + plus; // 100ms씩 증가
+                    if (newDuration >= 4500) { // 최대 지속 시간 도달 시 멈춤
+                        rotateAnimator.cancel();
+                        isStopped = true;
+                        set_hot();
+                        Log.d("FanActivity2", "Fan animation stopped due to maximum decay.");
+                    } else {
+                        // 진행률 유지
+                        long currentPlayTime = rotateAnimator.getCurrentPlayTime();
+                        float progress = (float) currentPlayTime / currentDuration;
 
-                    // 일정 시간 후 애니메이션 중지
-                    speedHandler.postDelayed(() -> {
-                        runOnUiThread(() -> {
-                            if (!isStopped) {
-                                rotateAnimator.cancel(); // 팬 애니메이션 중지
-                                isStopped = true; // 중지 상태로 설정
+                        rotateAnimator.setDuration(newDuration);
+                        rotateAnimator.setCurrentPlayTime((long) (progress * newDuration));
 
-                                // 넙죽이를 빨간 상태로 변경
-                                ImageView hotNupjuk = findViewById(R.id.hot_nupjuk);
-                                hotNupjuk.setImageResource(R.drawable.hot_nupjuk);
-                                updateNupjukSpeed(currentDuration, true); // 넙죽이가 천천히 움직임
-                                Log.d("FanActivity2", "Fan animation stopped. Nupjuk turned red.");
-                            }
-                        });
-                    }, stopTime);
+                        Log.d("FanActivity2", "Fan animation decayed to duration: " + newDuration + " ms");
+
+                        // 다음 감속 호출
+                        decayHandler.postDelayed(this, 1000); // 1초마다 감속 호출
+                    }
+                } else {
+                    Log.d("FanActivity2", "Fan is stopped. Decay process halted.");
                 }
             }
-        }, autoDecayInterval);
+        };
+
+        // 초기 감속 시작
+        decayHandler.postDelayed(decayRunnable, 1000);
     }
 
-    private void adjustFanSpeed(double decibel) {
-        if (decibel < 10) decibel = 10; // 최소 데시벨 클램핑
-        if (decibel > 70) decibel = 70; // 최대 데시벨 클램핑
+    private void adjustFanSpeed(long newDuration) {
+        if (rotateAnimator == null) return; // 애니메이터가 초기화되지 않은 경우 무시
 
-        long newDuration = (long) (3491 - 49 * decibel);
+        // 현재 진행률 및 재생 시간 계산
+        long currentPlayTime = rotateAnimator.getCurrentPlayTime(); // 현재 진행 시간(ms)
+        long totalDuration = rotateAnimator.getDuration();          // 기존 총 지속 시간(ms)
+        float progress = totalDuration > 0 ? (float) currentPlayTime / totalDuration : 0f; // 현재 진행률 계산
 
-        runOnUiThread(() -> {
-            if (isStopped) { // 팬이 중지 상태라면
-                rotateAnimator.start(); // 팬 애니메이션 재개
-                isStopped = false; // 중지 상태 해제
+        // 새로운 지속 시간 설정
+        rotateAnimator.setDuration(newDuration);
 
-                // 넙죽이를 시원한 상태로 변경
-                ImageView hotNupjuk = findViewById(R.id.hot_nupjuk);
-                hotNupjuk.setImageResource(R.drawable.cool_nupjuk);
-                Log.d("FanActivity2", "Animation restarted. Nupjuk turned cool.");
-            }
+        // 진행률 유지
+        rotateAnimator.setCurrentPlayTime((long) (progress * newDuration));
 
-            rotateAnimator.setDuration(newDuration); // 팬 속도 업데이트
-            updateNupjukSpeed(newDuration, false); // 넙죽이 속도 동기화 (빨리 움직임)
-            Log.d("FanActivity2", "Adjusted Fan Speed. New Duration: " + newDuration);
-
-            // 새로운 중지 타이머 설정
-            long stopTime = newDuration*10; // 팬 속도의 10배 시간 후 중지
-            speedHandler.postDelayed(() -> {
-                runOnUiThread(() -> {
-                    if (!isStopped) {
-                        rotateAnimator.cancel(); // 팬 애니메이션 중지
-                        isStopped = true; // 중지 상태로 설정
-
-                        // 넙죽이를 빨간 상태로 변경
-                        ImageView hotNupjuk = findViewById(R.id.hot_nupjuk);
-                        hotNupjuk.setImageResource(R.drawable.hot_nupjuk);
-                        updateNupjukSpeed(newDuration, true); // 팬이 멈췄을 때도 넙죽이가 천천히 움직임
-                        Log.d("FanActivity2", "Fan animation stopped. Nupjuk turned red.");
-                    }
-                });
-            }, stopTime);
-        });
-    }
-
-    private double calculateRMS(byte[] buffer, int read) {
-        long sum = 0;
-        for (int i = 0; i < read; i += 2) {
-            short sample = (short) ((buffer[i + 1] << 8) | (buffer[i] & 0xFF));
-            sum += sample * sample;
+        // 애니메이션 실행 상태 확인
+        if (!rotateAnimator.isStarted()) {
+            rotateAnimator.start(); // 애니메이션이 멈춰있으면 다시 시작
+            isStopped = false;
+            Log.d("FanActivity2", "Fan animation started with duration: " + newDuration + " ms");
+        } else {
+            Log.d("FanActivity2", "Fan animation speed adjusted to duration: " + newDuration + " ms");
         }
-        return Math.sqrt(sum / (read / 2.0));
+
+        // 감속 타이머 시작
+        startSpeedDecay();
+    }
+
+    /**
+     * 오디오 권한 요청 결과 처리
+     */
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == 1000) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Log.d("FanActivity2", "RECORD_AUDIO 권한 허용됨");
+            } else {
+                Log.d("FanActivity2", "RECORD_AUDIO 권한 거부됨");
+                Toast.makeText(this, "마이크 권한이 필요합니다.", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // 핸들러의 모든 콜백 제거
+        if (setHotRunnable != null) {
+            setHotHandler.removeCallbacks(setHotRunnable);
+        }
+        if (decayRunnable != null) {
+            decayHandler.removeCallbacks(decayRunnable);
+        }
+        decayHandler.removeCallbacksAndMessages(null);
+        setHotHandler.removeCallbacksAndMessages(null);
     }
 }
