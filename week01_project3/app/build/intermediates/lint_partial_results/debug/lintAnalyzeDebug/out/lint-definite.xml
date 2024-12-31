@@ -1,0 +1,1287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<incidents format="6" by="lint 8.7.3" type="incidents">
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.navigation:navigation-fragment-ktx than 2.7.6 is available: 2.8.5">
+        <fix-replace
+            description="Change to 2.8.5"
+            family="Update versions"
+            oldString="2.7.6"
+            replacement="2.8.5"
+            priority="0"/>
+        <location
+            file="${:app*projectDir}/build.gradle.kts"
+            line="63"
+            column="20"
+            startOffset="1709"
+            endLine="63"
+            endColumn="71"
+            endOffset="1760"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.navigation:navigation-ui-ktx than 2.7.6 is available: 2.8.5">
+        <fix-replace
+            description="Change to 2.8.5"
+            family="Update versions"
+            oldString="2.7.6"
+            replacement="2.8.5"
+            priority="0"/>
+        <location
+            file="${:app*projectDir}/build.gradle.kts"
+            line="64"
+            column="20"
+            startOffset="1795"
+            endLine="64"
+            endColumn="65"
+            endOffset="1840"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.constraintlayout:constraintlayout than 2.1.4 is available: 2.2.0">
+        <fix-replace
+            description="Change to 2.2.0"
+            family="Update versions"
+            oldString="2.1.4"
+            replacement="2.2.0"
+            priority="0"/>
+        <location
+            file="${:app*projectDir}/build.gradle.kts"
+            line="65"
+            column="20"
+            startOffset="1875"
+            endLine="65"
+            endColumn="70"
+            endOffset="1925"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.compose:compose-bom than 2024.04.01 is available: 2024.12.01">
+        <fix-replace
+            description="Change to 2024.12.01"
+            family="Update versions"
+            oldString="2024.04.01"
+            replacement="2024.12.01"
+            priority="0"/>
+        <location
+            file="$HOME/AndroidStudioProjects/week01_project2/gradle/libs.versions.toml"
+            line="15"
+            column="14"
+            startOffset="312"
+            endLine="15"
+            endColumn="26"
+            endOffset="324"/>
+    </incident>
+
+    <incident
+        id="DiscouragedApi"
+        severity="warning"
+        message="Use of this function is discouraged because resource reflection makes it harder to perform build optimizations and compile-time verification of code. It is much more efficient to retrieve resources by identifier (e.g. `R.foo.bar`) than by name (e.g. `getIdentifier(&quot;bar&quot;, &quot;foo&quot;, null)`).">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/week01_project2/ContactFragment.java"
+            line="67"
+            column="46"
+            startOffset="2268"
+            endLine="67"
+            endColumn="59"
+            endOffset="2281"/>
+    </incident>
+
+    <incident
+        id="DiscouragedApi"
+        severity="warning"
+        message="Use of this function is discouraged because resource reflection makes it harder to perform build optimizations and compile-time verification of code. It is much more efficient to retrieve resources by identifier (e.g. `R.foo.bar`) than by name (e.g. `getIdentifier(&quot;bar&quot;, &quot;foo&quot;, null)`).">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/week01_project2/MainActivity.java"
+            line="33"
+            column="44"
+            startOffset="916"
+            endLine="33"
+            endColumn="57"
+            endOffset="929"/>
+    </incident>
+
+    <incident
+        id="DataBindingWithoutKapt"
+        severity="warning"
+        message="If you plan to use data binding in a Kotlin project, you should apply the kotlin-kapt plugin.">
+        <location
+            file="${:app*projectDir}/build.gradle.kts"
+            line="36"
+            column="9"
+            startOffset="905"
+            endLine="36"
+            endColumn="27"
+            endOffset="923"/>
+    </incident>
+
+    <incident
+        id="NotifyDataSetChanged"
+        severity="warning"
+        message="It will always be more efficient to use more specific change events if you can. Rely on `notifyDataSetChanged` as a last resort.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/week01_project2/GalleryActivity.java"
+            line="131"
+            column="9"
+            startOffset="5103"
+            endLine="131"
+            endColumn="57"
+            endOffset="5151"/>
+    </incident>
+
+    <incident
+        id="NotifyDataSetChanged"
+        severity="warning"
+        message="It will always be more efficient to use more specific change events if you can. Rely on `notifyDataSetChanged` as a last resort.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/week01_project2/ImageAdapter.java"
+            line="33"
+            column="9"
+            startOffset="947"
+            endLine="33"
+            endColumn="31"
+            endOffset="969"/>
+    </incident>
+
+    <incident
+        id="Overdraw"
+        severity="warning"
+        message="Possible overdraw: Root element paints background `@android:color/white` with a theme that also paints a background (inferred theme is `@style/Theme.Week01_project2`)">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/camera.xml"
+            line="10"
+            column="5"
+            startOffset="349"
+            endLine="10"
+            endColumn="46"
+            endOffset="390"/>
+    </incident>
+
+    <incident
+        id="IconLocation"
+        severity="warning"
+        message="Found bitmap drawable `res/drawable/angry_nupjuk.png` in densityless folder">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/angry_nupjuk.png"/>
+    </incident>
+
+    <incident
+        id="IconLocation"
+        severity="warning"
+        message="Found bitmap drawable `res/drawable/ayyaa.png` in densityless folder">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/ayyaa.png"/>
+    </incident>
+
+    <incident
+        id="IconLocation"
+        severity="warning"
+        message="Found bitmap drawable `res/drawable/contact_background.jpg` in densityless folder">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/contact_background.jpg"/>
+    </incident>
+
+    <incident
+        id="IconLocation"
+        severity="warning"
+        message="Found bitmap drawable `res/drawable/cool_background.jpg` in densityless folder">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/cool_background.jpg"/>
+    </incident>
+
+    <incident
+        id="IconLocation"
+        severity="warning"
+        message="Found bitmap drawable `res/drawable/cool_nupjuk.png` in densityless folder">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/cool_nupjuk.png"/>
+    </incident>
+
+    <incident
+        id="IconLocation"
+        severity="warning"
+        message="Found bitmap drawable `res/drawable/fan.jpg` in densityless folder">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/fan.jpg"/>
+    </incident>
+
+    <incident
+        id="IconLocation"
+        severity="warning"
+        message="Found bitmap drawable `res/drawable/fanfan.png` in densityless folder">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/fanfan.png"/>
+    </incident>
+
+    <incident
+        id="IconLocation"
+        severity="warning"
+        message="Found bitmap drawable `res/drawable/fffann.png` in densityless folder">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/fffann.png"/>
+    </incident>
+
+    <incident
+        id="IconLocation"
+        severity="warning"
+        message="Found bitmap drawable `res/drawable/file.png` in densityless folder">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/file.png"/>
+    </incident>
+
+    <incident
+        id="IconLocation"
+        severity="warning"
+        message="Found bitmap drawable `res/drawable/hey.jpeg` in densityless folder">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/hey.jpeg"/>
+    </incident>
+
+    <incident
+        id="IconLocation"
+        severity="warning"
+        message="Found bitmap drawable `res/drawable/heyyy.jpg` in densityless folder">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/heyyy.jpg"/>
+    </incident>
+
+    <incident
+        id="IconLocation"
+        severity="warning"
+        message="Found bitmap drawable `res/drawable/home_background.jpg` in densityless folder">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/home_background.jpg"/>
+    </incident>
+
+    <incident
+        id="IconLocation"
+        severity="warning"
+        message="Found bitmap drawable `res/drawable/home_background2.jpg` in densityless folder">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/home_background2.jpg"/>
+    </incident>
+
+    <incident
+        id="IconLocation"
+        severity="warning"
+        message="Found bitmap drawable `res/drawable/home_background3.png` in densityless folder">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/home_background3.png"/>
+    </incident>
+
+    <incident
+        id="IconLocation"
+        severity="warning"
+        message="Found bitmap drawable `res/drawable/hot_background.jpg` in densityless folder">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/hot_background.jpg"/>
+    </incident>
+
+    <incident
+        id="IconLocation"
+        severity="warning"
+        message="Found bitmap drawable `res/drawable/hot_nupjuk.png` in densityless folder">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/hot_nupjuk.png"/>
+    </incident>
+
+    <incident
+        id="IconLocation"
+        severity="warning"
+        message="Found bitmap drawable `res/drawable/nupzuk.png` in densityless folder">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/nupzuk.png"/>
+    </incident>
+
+    <incident
+        id="IconLocation"
+        severity="warning"
+        message="Found bitmap drawable `res/drawable/p1.jpeg` in densityless folder">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/p1.jpeg"/>
+    </incident>
+
+    <incident
+        id="IconLocation"
+        severity="warning"
+        message="Found bitmap drawable `res/drawable/p10.jpeg` in densityless folder">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/p10.jpeg"/>
+    </incident>
+
+    <incident
+        id="IconLocation"
+        severity="warning"
+        message="Found bitmap drawable `res/drawable/p11.jpeg` in densityless folder">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/p11.jpeg"/>
+    </incident>
+
+    <incident
+        id="IconLocation"
+        severity="warning"
+        message="Found bitmap drawable `res/drawable/p12.jpeg` in densityless folder">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/p12.jpeg"/>
+    </incident>
+
+    <incident
+        id="IconLocation"
+        severity="warning"
+        message="Found bitmap drawable `res/drawable/p13.jpg` in densityless folder">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/p13.jpg"/>
+    </incident>
+
+    <incident
+        id="IconLocation"
+        severity="warning"
+        message="Found bitmap drawable `res/drawable/p14.jpeg` in densityless folder">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/p14.jpeg"/>
+    </incident>
+
+    <incident
+        id="IconLocation"
+        severity="warning"
+        message="Found bitmap drawable `res/drawable/p15.png` in densityless folder">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/p15.png"/>
+    </incident>
+
+    <incident
+        id="IconLocation"
+        severity="warning"
+        message="Found bitmap drawable `res/drawable/p16.jpeg` in densityless folder">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/p16.jpeg"/>
+    </incident>
+
+    <incident
+        id="IconLocation"
+        severity="warning"
+        message="Found bitmap drawable `res/drawable/p17.png` in densityless folder">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/p17.png"/>
+    </incident>
+
+    <incident
+        id="IconLocation"
+        severity="warning"
+        message="Found bitmap drawable `res/drawable/p18.jpeg` in densityless folder">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/p18.jpeg"/>
+    </incident>
+
+    <incident
+        id="IconLocation"
+        severity="warning"
+        message="Found bitmap drawable `res/drawable/p19.jpeg` in densityless folder">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/p19.jpeg"/>
+    </incident>
+
+    <incident
+        id="IconLocation"
+        severity="warning"
+        message="Found bitmap drawable `res/drawable/p2.jpeg` in densityless folder">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/p2.jpeg"/>
+    </incident>
+
+    <incident
+        id="IconLocation"
+        severity="warning"
+        message="Found bitmap drawable `res/drawable/p20.jpeg` in densityless folder">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/p20.jpeg"/>
+    </incident>
+
+    <incident
+        id="IconLocation"
+        severity="warning"
+        message="Found bitmap drawable `res/drawable/p3.jpeg` in densityless folder">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/p3.jpeg"/>
+    </incident>
+
+    <incident
+        id="IconLocation"
+        severity="warning"
+        message="Found bitmap drawable `res/drawable/p4.jpeg` in densityless folder">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/p4.jpeg"/>
+    </incident>
+
+    <incident
+        id="IconLocation"
+        severity="warning"
+        message="Found bitmap drawable `res/drawable/p5.jpeg` in densityless folder">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/p5.jpeg"/>
+    </incident>
+
+    <incident
+        id="IconLocation"
+        severity="warning"
+        message="Found bitmap drawable `res/drawable/p6.jpeg` in densityless folder">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/p6.jpeg"/>
+    </incident>
+
+    <incident
+        id="IconLocation"
+        severity="warning"
+        message="Found bitmap drawable `res/drawable/p7.png` in densityless folder">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/p7.png"/>
+    </incident>
+
+    <incident
+        id="IconLocation"
+        severity="warning"
+        message="Found bitmap drawable `res/drawable/p8.jpeg` in densityless folder">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/p8.jpeg"/>
+    </incident>
+
+    <incident
+        id="IconLocation"
+        severity="warning"
+        message="Found bitmap drawable `res/drawable/p9.jpeg` in densityless folder">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/p9.jpeg"/>
+    </incident>
+
+    <incident
+        id="IconLocation"
+        severity="warning"
+        message="Found bitmap drawable `res/drawable/phone.jpg` in densityless folder">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/phone.jpg"/>
+    </incident>
+
+    <incident
+        id="IconLocation"
+        severity="warning"
+        message="Found bitmap drawable `res/drawable/plus.png` in densityless folder">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/plus.png"/>
+    </incident>
+
+    <incident
+        id="IconLocation"
+        severity="warning"
+        message="Found bitmap drawable `res/drawable/sample.jpg` in densityless folder">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/sample.jpg"/>
+    </incident>
+
+    <incident
+        id="IconLocation"
+        severity="warning"
+        message="Found bitmap drawable `res/drawable/tiger.png` in densityless folder">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/tiger.png"/>
+    </incident>
+
+    <incident
+        id="IconLocation"
+        severity="warning"
+        message="Found bitmap drawable `res/drawable/wow.png` in densityless folder">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/wow.png"/>
+    </incident>
+
+    <incident
+        id="UseTomlInstead"
+        severity="warning"
+        message="Use version catalog instead">
+        <fix-composite
+            description="Replace with new library catalog declaration for androidx-navigation-navigation-fragment-ktx6"
+            robot="true">
+            <fix-replace
+                description="Replace with androidxNavigationNavigationFragmentKtx4 = &quot;2.7.6&quot;..."
+                robot="true"
+                oldString="_lint_insert_begin_"
+                replacement="androidxNavigationNavigationFragmentKtx4 = &quot;2.7.6&quot;&#xA;"
+                priority="0">
+                <range
+                    file="$HOME/AndroidStudioProjects/week01_project2/gradle/libs.versions.toml"
+                    startOffset="25"
+                    endOffset="25"/>
+            </fix-replace>
+            <fix-replace
+                description="Replace with androidx-navigation-navigation-fragment-ktx6 = { module = &quot;androidx.navigation:navigation-fragment-ktx&quot;, version.ref = &quot;androidxNavigationNavigationFragmentKtx4&quot; }..."
+                robot="true"
+                oldString="_lint_insert_begin_"
+                replacement="androidx-navigation-navigation-fragment-ktx6 = { module = &quot;androidx.navigation:navigation-fragment-ktx&quot;, version.ref = &quot;androidxNavigationNavigationFragmentKtx4&quot; }&#xA;"
+                priority="0">
+                <range
+                    file="$HOME/AndroidStudioProjects/week01_project2/gradle/libs.versions.toml"
+                    startOffset="338"
+                    endOffset="338"/>
+            </fix-replace>
+            <fix-replace
+                description="Replace with libs.androidx.navigation.navigation.fragment.ktx6"
+                robot="true"
+                replacement="libs.androidx.navigation.navigation.fragment.ktx6"
+                priority="0">
+                <range
+                    file="${:app*projectDir}/build.gradle.kts"
+                    startOffset="1709"
+                    endOffset="1760"/>
+            </fix-replace>
+        </fix-composite>
+        <location
+            file="${:app*projectDir}/build.gradle.kts"
+            line="63"
+            column="20"
+            startOffset="1709"
+            endLine="63"
+            endColumn="71"
+            endOffset="1760"/>
+    </incident>
+
+    <incident
+        id="UseTomlInstead"
+        severity="warning"
+        message="Use version catalog instead">
+        <fix-composite
+            description="Replace with new library catalog declaration for androidx-navigation-navigation-ui-ktx6"
+            robot="true">
+            <fix-replace
+                description="Replace with androidxNavigationNavigationUiKtx4 = &quot;2.7.6&quot;..."
+                robot="true"
+                oldString="_lint_insert_begin_"
+                replacement="androidxNavigationNavigationUiKtx4 = &quot;2.7.6&quot;&#xA;"
+                priority="0">
+                <range
+                    file="$HOME/AndroidStudioProjects/week01_project2/gradle/libs.versions.toml"
+                    startOffset="25"
+                    endOffset="25"/>
+            </fix-replace>
+            <fix-replace
+                description="Replace with androidx-navigation-navigation-ui-ktx6 = { module = &quot;androidx.navigation:navigation-ui-ktx&quot;, version.ref = &quot;androidxNavigationNavigationUiKtx4&quot; }..."
+                robot="true"
+                oldString="_lint_insert_begin_"
+                replacement="androidx-navigation-navigation-ui-ktx6 = { module = &quot;androidx.navigation:navigation-ui-ktx&quot;, version.ref = &quot;androidxNavigationNavigationUiKtx4&quot; }&#xA;"
+                priority="0">
+                <range
+                    file="$HOME/AndroidStudioProjects/week01_project2/gradle/libs.versions.toml"
+                    startOffset="338"
+                    endOffset="338"/>
+            </fix-replace>
+            <fix-replace
+                description="Replace with libs.androidx.navigation.navigation.ui.ktx6"
+                robot="true"
+                replacement="libs.androidx.navigation.navigation.ui.ktx6"
+                priority="0">
+                <range
+                    file="${:app*projectDir}/build.gradle.kts"
+                    startOffset="1795"
+                    endOffset="1840"/>
+            </fix-replace>
+        </fix-composite>
+        <location
+            file="${:app*projectDir}/build.gradle.kts"
+            line="64"
+            column="20"
+            startOffset="1795"
+            endLine="64"
+            endColumn="65"
+            endOffset="1840"/>
+    </incident>
+
+    <incident
+        id="UseTomlInstead"
+        severity="warning"
+        message="Use version catalog instead (androidx.constraintlayout:constraintlayout is already available as `constraintlayout`, but using version 2.2.0 instead)">
+        <fix-alternatives>
+            <fix-composite
+                description="Replace with new library catalog declaration for androidx-constraintlayout-constraintlayout-v214-x6"
+                robot="true"
+                independent="true">
+                <fix-replace
+                    description="Replace with androidxConstraintlayoutConstraintlayout5 = &quot;2.1.4&quot;..."
+                    robot="true"
+                    independent="true"
+                    oldString="_lint_insert_begin_"
+                    replacement="androidxConstraintlayoutConstraintlayout5 = &quot;2.1.4&quot;&#xA;"
+                    priority="0">
+                    <range
+                        file="$HOME/AndroidStudioProjects/week01_project2/gradle/libs.versions.toml"
+                        startOffset="25"
+                        endOffset="25"/>
+                </fix-replace>
+                <fix-replace
+                    description="Replace with androidx-constraintlayout-constraintlayout-v214-x6 = { module = &quot;androidx.constraintlayout:constraintlayout&quot;, version.ref = &quot;androidxConstraintlayoutConstraintlayout5&quot; }..."
+                    robot="true"
+                    independent="true"
+                    oldString="_lint_insert_begin_"
+                    replacement="androidx-constraintlayout-constraintlayout-v214-x6 = { module = &quot;androidx.constraintlayout:constraintlayout&quot;, version.ref = &quot;androidxConstraintlayoutConstraintlayout5&quot; }&#xA;"
+                    priority="0">
+                    <range
+                        file="$HOME/AndroidStudioProjects/week01_project2/gradle/libs.versions.toml"
+                        startOffset="338"
+                        endOffset="338"/>
+                </fix-replace>
+                <fix-replace
+                    description="Replace with libs.androidx.constraintlayout.constraintlayout.v214.x6"
+                    robot="true"
+                    independent="true"
+                    replacement="libs.androidx.constraintlayout.constraintlayout.v214.x6"
+                    priority="0">
+                    <range
+                        file="${:app*projectDir}/build.gradle.kts"
+                        startOffset="1875"
+                        endOffset="1925"/>
+                </fix-replace>
+            </fix-composite>
+            <fix-replace
+                description="Replace with existing version catalog reference `constraintlayout` (version 2.2.0)"
+                replacement="libs.constraintlayout"
+                priority="0">
+                <range
+                    file="${:app*projectDir}/build.gradle.kts"
+                    startOffset="1875"
+                    endOffset="1925"/>
+            </fix-replace>
+        </fix-alternatives>
+        <location
+            file="${:app*projectDir}/build.gradle.kts"
+            line="65"
+            column="20"
+            startOffset="1875"
+            endLine="65"
+            endColumn="70"
+            endOffset="1925"/>
+    </incident>
+
+    <incident
+        id="UseTomlInstead"
+        severity="warning"
+        message="Use version catalog instead">
+        <fix-composite
+            description="Replace with new library catalog declaration for com-squareup-retrofit2-retrofit5"
+            robot="true">
+            <fix-replace
+                description="Replace with comSquareupRetrofit2Retrofit4 = &quot;2.9.0&quot;..."
+                robot="true"
+                oldString="_lint_insert_begin_"
+                replacement="comSquareupRetrofit2Retrofit4 = &quot;2.9.0&quot;&#xA;"
+                priority="0">
+                <range
+                    file="$HOME/AndroidStudioProjects/week01_project2/gradle/libs.versions.toml"
+                    startOffset="25"
+                    endOffset="25"/>
+            </fix-replace>
+            <fix-replace
+                description="Replace with com-squareup-retrofit2-retrofit5 = { module = &quot;com.squareup.retrofit2:retrofit&quot;, version.ref = &quot;comSquareupRetrofit2Retrofit4&quot; }..."
+                robot="true"
+                oldString="_lint_insert_begin_"
+                replacement="com-squareup-retrofit2-retrofit5 = { module = &quot;com.squareup.retrofit2:retrofit&quot;, version.ref = &quot;comSquareupRetrofit2Retrofit4&quot; }&#xA;"
+                priority="0">
+                <range
+                    file="$HOME/AndroidStudioProjects/week01_project2/gradle/libs.versions.toml"
+                    startOffset="338"
+                    endOffset="338"/>
+            </fix-replace>
+            <fix-replace
+                description="Replace with libs.com.squareup.retrofit2.retrofit5"
+                robot="true"
+                replacement="libs.com.squareup.retrofit2.retrofit5"
+                priority="0">
+                <range
+                    file="${:app*projectDir}/build.gradle.kts"
+                    startOffset="1946"
+                    endOffset="1985"/>
+            </fix-replace>
+        </fix-composite>
+        <location
+            file="${:app*projectDir}/build.gradle.kts"
+            line="66"
+            column="20"
+            startOffset="1946"
+            endLine="66"
+            endColumn="59"
+            endOffset="1985"/>
+    </incident>
+
+    <incident
+        id="UseTomlInstead"
+        severity="warning"
+        message="Use version catalog instead">
+        <fix-composite
+            description="Replace with new library catalog declaration for com-squareup-retrofit2-converter-gson5"
+            robot="true">
+            <fix-replace
+                description="Replace with comSquareupRetrofit2ConverterGson4 = &quot;2.9.0&quot;..."
+                robot="true"
+                oldString="_lint_insert_begin_"
+                replacement="comSquareupRetrofit2ConverterGson4 = &quot;2.9.0&quot;&#xA;"
+                priority="0">
+                <range
+                    file="$HOME/AndroidStudioProjects/week01_project2/gradle/libs.versions.toml"
+                    startOffset="25"
+                    endOffset="25"/>
+            </fix-replace>
+            <fix-replace
+                description="Replace with com-squareup-retrofit2-converter-gson5 = { module = &quot;com.squareup.retrofit2:converter-gson&quot;, version.ref = &quot;comSquareupRetrofit2ConverterGson4&quot; }..."
+                robot="true"
+                oldString="_lint_insert_begin_"
+                replacement="com-squareup-retrofit2-converter-gson5 = { module = &quot;com.squareup.retrofit2:converter-gson&quot;, version.ref = &quot;comSquareupRetrofit2ConverterGson4&quot; }&#xA;"
+                priority="0">
+                <range
+                    file="$HOME/AndroidStudioProjects/week01_project2/gradle/libs.versions.toml"
+                    startOffset="338"
+                    endOffset="338"/>
+            </fix-replace>
+            <fix-replace
+                description="Replace with libs.com.squareup.retrofit2.converter.gson5"
+                robot="true"
+                replacement="libs.com.squareup.retrofit2.converter.gson5"
+                priority="0">
+                <range
+                    file="${:app*projectDir}/build.gradle.kts"
+                    startOffset="2006"
+                    endOffset="2051"/>
+            </fix-replace>
+        </fix-composite>
+        <location
+            file="${:app*projectDir}/build.gradle.kts"
+            line="67"
+            column="20"
+            startOffset="2006"
+            endLine="67"
+            endColumn="65"
+            endOffset="2051"/>
+    </incident>
+
+    <incident
+        id="ClickableViewAccessibility"
+        severity="warning"
+        message="Custom view ``RecyclerView`` has `setOnTouchListener` called on it but does not override `performClick`">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/week01_project2/GalleryActivity.java"
+            line="83"
+            column="9"
+            startOffset="3018"
+            endLine="86"
+            endColumn="11"
+            endOffset="3226"/>
+    </incident>
+
+    <incident
+        id="ClickableViewAccessibility"
+        severity="warning"
+        message="`onTouch` lambda should call `View#performClick` when a click is detected">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/week01_project2/GalleryActivity.java"
+            line="83"
+            column="41"
+            startOffset="3050"
+            endLine="86"
+            endColumn="10"
+            endOffset="3225"/>
+    </incident>
+
+    <incident
+        id="ContentDescription"
+        severity="warning"
+        message="Missing `contentDescription` attribute on image">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set contentDescription"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="contentDescription"
+                value="TODO"
+                point="4"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAccessibility=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAccessibility"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/camera.xml"
+            line="13"
+            column="6"
+            startOffset="433"
+            endLine="13"
+            endColumn="15"
+            endOffset="442"/>
+    </incident>
+
+    <incident
+        id="ContentDescription"
+        severity="warning"
+        message="Missing `contentDescription` attribute on image">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set contentDescription"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="contentDescription"
+                value="TODO"
+                point="4"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAccessibility=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAccessibility"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/contact_profile.xml"
+            line="6"
+            column="6"
+            startOffset="304"
+            endLine="6"
+            endColumn="15"
+            endOffset="313"/>
+    </incident>
+
+    <incident
+        id="ContentDescription"
+        severity="warning"
+        message="Missing `contentDescription` attribute on image">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set contentDescription"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="contentDescription"
+                value="TODO"
+                point="4"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAccessibility=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAccessibility"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/contact_profile.xml"
+            line="48"
+            column="14"
+            startOffset="2103"
+            endLine="48"
+            endColumn="23"
+            endOffset="2112"/>
+    </incident>
+
+    <incident
+        id="ContentDescription"
+        severity="warning"
+        message="Missing `contentDescription` attribute on image">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set contentDescription"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="contentDescription"
+                value="TODO"
+                point="4"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAccessibility=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAccessibility"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/contact_profile.xml"
+            line="213"
+            column="10"
+            startOffset="9365"
+            endLine="213"
+            endColumn="19"
+            endOffset="9374"/>
+    </incident>
+
+    <incident
+        id="ContentDescription"
+        severity="warning"
+        message="Missing `contentDescription` attribute on image">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set contentDescription"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="contentDescription"
+                value="TODO"
+                point="4"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAccessibility=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAccessibility"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fan.xml"
+            line="10"
+            column="6"
+            startOffset="381"
+            endLine="10"
+            endColumn="15"
+            endOffset="390"/>
+    </incident>
+
+    <incident
+        id="ContentDescription"
+        severity="warning"
+        message="Missing `contentDescription` attribute on image">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set contentDescription"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="contentDescription"
+                value="TODO"
+                point="4"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAccessibility=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAccessibility"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fan.xml"
+            line="20"
+            column="6"
+            startOffset="741"
+            endLine="20"
+            endColumn="15"
+            endOffset="750"/>
+    </incident>
+
+    <incident
+        id="ContentDescription"
+        severity="warning"
+        message="Missing `contentDescription` attribute on image">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set contentDescription"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="contentDescription"
+                value="TODO"
+                point="4"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAccessibility=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAccessibility"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_home.xml"
+            line="12"
+            column="10"
+            startOffset="442"
+            endLine="12"
+            endColumn="19"
+            endOffset="451"/>
+    </incident>
+
+    <incident
+        id="ContentDescription"
+        severity="warning"
+        message="Missing `contentDescription` attribute on image">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set contentDescription"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="contentDescription"
+                value="TODO"
+                point="4"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAccessibility=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAccessibility"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_image.xml"
+            line="12"
+            column="6"
+            startOffset="436"
+            endLine="12"
+            endColumn="75"
+            endOffset="505"/>
+    </incident>
+
+    <incident
+        id="ContentDescription"
+        severity="warning"
+        message="Missing `contentDescription` attribute on image">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set contentDescription"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="contentDescription"
+                value="TODO"
+                point="4"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAccessibility=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAccessibility"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/image_item.xml"
+            line="9"
+            column="6"
+            startOffset="348"
+            endLine="9"
+            endColumn="15"
+            endOffset="357"/>
+    </incident>
+
+    <incident
+        id="ContentDescription"
+        severity="warning"
+        message="Missing `contentDescription` attribute on image">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set contentDescription"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="contentDescription"
+                value="TODO"
+                point="4"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAccessibility=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAccessibility"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/list_item.xml"
+            line="35"
+            column="14"
+            startOffset="1540"
+            endLine="35"
+            endColumn="23"
+            endOffset="1549"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Show Details&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/camera.xml"
+            line="28"
+            column="9"
+            startOffset="957"
+            endLine="28"
+            endColumn="36"
+            endOffset="984"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Info&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/contact_profile.xml"
+            line="119"
+            column="17"
+            startOffset="5200"
+            endLine="119"
+            endColumn="36"
+            endOffset="5219"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Name&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/contact_profile.xml"
+            line="130"
+            column="17"
+            startOffset="5684"
+            endLine="130"
+            endColumn="36"
+            endOffset="5703"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;namenamename&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/contact_profile.xml"
+            line="141"
+            column="17"
+            startOffset="6173"
+            endLine="141"
+            endColumn="44"
+            endOffset="6200"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Mobile&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/contact_profile.xml"
+            line="151"
+            column="17"
+            startOffset="6629"
+            endLine="151"
+            endColumn="38"
+            endOffset="6650"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;010-1111-1111&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/contact_profile.xml"
+            line="162"
+            column="17"
+            startOffset="7118"
+            endLine="162"
+            endColumn="45"
+            endOffset="7146"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Email&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/contact_profile.xml"
+            line="172"
+            column="17"
+            startOffset="7576"
+            endLine="172"
+            endColumn="37"
+            endOffset="7596"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;010-1111-1111&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/contact_profile.xml"
+            line="183"
+            column="17"
+            startOffset="8065"
+            endLine="183"
+            endColumn="45"
+            endOffset="8093"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Birthday&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/contact_profile.xml"
+            line="193"
+            column="17"
+            startOffset="8521"
+            endLine="193"
+            endColumn="40"
+            endOffset="8544"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;2003-09-20&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/contact_profile.xml"
+            line="205"
+            column="17"
+            startOffset="9061"
+            endLine="205"
+            endColumn="42"
+            endOffset="9086"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Blow!&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fan.xml"
+            line="35"
+            column="9"
+            startOffset="1343"
+            endLine="35"
+            endColumn="29"
+            endOffset="1363"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Talk!&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fan.xml"
+            line="47"
+            column="9"
+            startOffset="1841"
+            endLine="47"
+            endColumn="29"
+            endOffset="1861"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;GUESS WHAT?&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_home.xml"
+            line="59"
+            column="13"
+            startOffset="2501"
+            endLine="59"
+            endColumn="39"
+            endOffset="2527"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;namenamename&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/list_item.xml"
+            line="50"
+            column="13"
+            startOffset="2098"
+            endLine="50"
+            endColumn="40"
+            endOffset="2125"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;01012345678&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/list_item.xml"
+            line="62"
+            column="13"
+            startOffset="2604"
+            endLine="62"
+            endColumn="39"
+            endOffset="2630"/>
+    </incident>
+
+</incidents>

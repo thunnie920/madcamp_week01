@@ -1,0 +1,42 @@
+[
+    {
+        "merged": "com.example.week01_project2.app-mergeReleaseResources-67:/layout/image_item.xml",
+        "source": "com.example.week01_project2.app-main-69:/layout/image_item.xml"
+    },
+    {
+        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project2.app-mergeReleaseResources-67:/layout/image_item.xml",
+        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project2.app-main-69:/layout/image_item.xml"
+    },
+    {
+        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project2.app-mergeReleaseResources-67:/layout/fan.xml",
+        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project2.app-main-69:/layout/fan.xml"
+    },
+    {
+        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project2.app-mergeReleaseResources-67:/layout/fragment_contact.xml",
+        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project2.app-main-69:/layout/fragment_contact.xml"
+    },
+    {
+        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project2.app-mergeReleaseResources-67:/layout/list_item.xml",
+        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project2.app-main-69:/layout/list_item.xml"
+    },
+    {
+        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project2.app-mergeReleaseResources-67:/layout/contact_profile.xml",
+        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project2.app-main-69:/layout/contact_profile.xml"
+    },
+    {
+        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project2.app-mergeReleaseResources-67:/layout/fragment_home.xml",
+        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project2.app-main-69:/layout/fragment_home.xml"
+    },
+    {
+        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project2.app-mergeReleaseResources-67:/layout/activity_main.xml",
+        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project2.app-main-69:/layout/activity_main.xml"
+    },
+    {
+        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project2.app-mergeReleaseResources-67:/layout/camera.xml",
+        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project2.app-main-69:/layout/camera.xml"
+    },
+    {
+        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project2.app-mergeReleaseResources-67:/layout/fragment_image.xml",
+        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project2.app-main-69:/layout/fragment_image.xml"
+    }
+]

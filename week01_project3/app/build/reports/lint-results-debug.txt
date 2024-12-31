@@ -1,0 +1,425 @@
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/AndroidManifest.xml:11: Warning: WRITE_EXTERNAL_STORAGE is deprecated (and is not granted) when targeting Android 13+. If you need to write to shared storage, use the MediaStore.createWriteRequest intent. [ScopedStorage]
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/AndroidManifest.xml:12: Warning: READ_EXTERNAL_STORAGE is deprecated (and is not granted) when targeting Android 13+. If you need to query or interact with MediaStore or media files on the shared storage, you should instead use one or more new storage permissions: READ_MEDIA_IMAGES, READ_MEDIA_VIDEO or READ_MEDIA_AUDIO. [ScopedStorage]
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "ScopedStorage":
+   Scoped storage is enforced on Android 10+ (or Android 11+ if using
+   requestLegacyExternalStorage). In particular, WRITE_EXTERNAL_STORAGE will
+   no longer provide write access to all files; it will provide the equivalent
+   of READ_EXTERNAL_STORAGE instead.
+
+   As of Android 13, if you need to query or interact with MediaStore or media
+   files on the shared storage, you should be using instead one or more new
+   storage permissions:
+   * android.permission.READ_MEDIA_IMAGES
+   * android.permission.READ_MEDIA_VIDEO
+   * android.permission.READ_MEDIA_AUDIO
+
+   and then add maxSdkVersion="33" to the older permission. See the developer
+   guide for how to do this:
+   https://developer.android.com/about/versions/13/behavior-changes-13#granula
+   r-media-permissions
+
+   The MANAGE_EXTERNAL_STORAGE permission can be used to manage all files, but
+   it is rarely necessary and most apps on Google Play are not allowed to use
+   it. Most apps should instead migrate to use scoped storage. To modify or
+   delete files, apps should request write access from the user as described
+   at https://goo.gle/android-mediastore-createwriterequest.
+
+   To learn more, read these resources: Play policy:
+   https://goo.gle/policy-storage-help Allowable use cases:
+   https://goo.gle/policy-storage-usecases
+
+   https://goo.gle/android-storage-usecases
+
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/java/com/example/week01_project2/DetailActivity.java:68: Warning: Consider adding a <queries> declaration to your manifest when calling this method; see https://g.co/dev/packagevisibility for details [QueryPermissionsNeeded]
+            if (intent2.resolveActivity(context.getPackageManager()) != null) {
+                        ~~~~~~~~~~~~~~~
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/java/com/example/week01_project2/DetailActivity.java:85: Warning: Consider adding a <queries> declaration to your manifest when calling this method; see https://g.co/dev/packagevisibility for details [QueryPermissionsNeeded]
+            if (intent2.resolveActivity(context.getPackageManager()) != null) {
+                        ~~~~~~~~~~~~~~~
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/java/com/example/week01_project2/GalleryActivity.java:92: Warning: Consider adding a <queries> declaration to your manifest when calling this method; see https://g.co/dev/packagevisibility for details [QueryPermissionsNeeded]
+            if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+                                  ~~~~~~~~~~~~~~~
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/java/com/example/week01_project2/ProfileAdapter.java:170: Warning: Consider adding a <queries> declaration to your manifest when calling this method; see https://g.co/dev/packagevisibility for details [QueryPermissionsNeeded]
+            if (intent.resolveActivity(context.getPackageManager()) != null) {
+                       ~~~~~~~~~~~~~~~
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/java/com/example/week01_project2/ProfileAdapter.java:190: Warning: Consider adding a <queries> declaration to your manifest when calling this method; see https://g.co/dev/packagevisibility for details [QueryPermissionsNeeded]
+            if (intent.resolveActivity(context.getPackageManager()) != null) {
+                       ~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "QueryPermissionsNeeded":
+   Apps that target Android 11 cannot query or interact with other installed
+   apps by default. If you need to query or interact with other installed
+   apps, you may need to add a <queries> declaration in your manifest.
+
+   As a corollary, the methods PackageManager#getInstalledPackages and
+   PackageManager#getInstalledApplications will no longer return information
+   about all installed apps. To query specific apps or types of apps, you can
+   use methods like PackageManager#getPackageInfo or
+   PackageManager#queryIntentActivities.
+
+   https://g.co/dev/packagevisibility
+
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/build.gradle.kts:63: Warning: A newer version of androidx.navigation:navigation-fragment-ktx than 2.7.6 is available: 2.8.5 [GradleDependency]
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.6") // Navigation
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/build.gradle.kts:64: Warning: A newer version of androidx.navigation:navigation-ui-ktx than 2.7.6 is available: 2.8.5 [GradleDependency]
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.6") // Navigation
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/build.gradle.kts:65: Warning: A newer version of androidx.constraintlayout:constraintlayout than 2.1.4 is available: 2.2.0 [GradleDependency]
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/seoeun/AndroidStudioProjects/week01_project2/gradle/libs.versions.toml:15: Warning: A newer version of androidx.compose:compose-bom than 2024.04.01 is available: 2024.12.01 [GradleDependency]
+composeBom = "2024.04.01"
+             ~~~~~~~~~~~~
+/Users/seoeun/AndroidStudioProjects/week01_project2/gradle/libs.versions.toml:15: Warning: A newer version of androidx.compose:compose-bom than 2024.04.01 is available: 2024.12.01 [GradleDependency]
+composeBom = "2024.04.01"
+             ~~~~~~~~~~~~
+/Users/seoeun/AndroidStudioProjects/week01_project2/gradle/libs.versions.toml:15: Warning: A newer version of androidx.compose:compose-bom than 2024.04.01 is available: 2024.12.01 [GradleDependency]
+composeBom = "2024.04.01"
+             ~~~~~~~~~~~~
+
+   Explanation for issues of type "GradleDependency":
+   This detector looks for usages of libraries where the version you are using
+   is not the current stable release. Using older versions is fine, and there
+   are cases where you deliberately want to stick with an older version.
+   However, you may simply not be aware that a more recent version is
+   available, and that is what this lint check helps find.
+
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/java/com/example/week01_project2/ContactFragment.java:67: Warning: Use of this function is discouraged because resource reflection makes it harder to perform build optimizations and compile-time verification of code. It is much more efficient to retrieve resources by identifier (e.g. R.foo.bar) than by name (e.g. getIdentifier("bar", "foo", null)). [DiscouragedApi]
+                int picture = getResources().getIdentifier(
+                                             ~~~~~~~~~~~~~
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/java/com/example/week01_project2/MainActivity.java:33: Warning: Use of this function is discouraged because resource reflection makes it harder to perform build optimizations and compile-time verification of code. It is much more efficient to retrieve resources by identifier (e.g. R.foo.bar) than by name (e.g. getIdentifier("bar", "foo", null)). [DiscouragedApi]
+                int resID = getResources().getIdentifier(drawableName, "drawable", getPackageName());
+                                           ~~~~~~~~~~~~~
+
+   Explanation for issues of type "DiscouragedApi":
+   Discouraged APIs are allowed and are not deprecated, but they may be unfit
+   for common use (e.g. due to slow performance or subtle behavior).
+
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/build.gradle.kts:36: Warning: If you plan to use data binding in a Kotlin project, you should apply the kotlin-kapt plugin. [DataBindingWithoutKapt]
+        dataBinding = true
+        ~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "DataBindingWithoutKapt":
+   Apps that use Kotlin and data binding should also apply the kotlin-kapt
+   plugin.
+
+   https://kotlinlang.org/docs/reference/kapt.html
+
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/java/com/example/week01_project2/GalleryActivity.java:131: Warning: It will always be more efficient to use more specific change events if you can. Rely on notifyDataSetChanged as a last resort. [NotifyDataSetChanged]
+        recyclerView.getAdapter().notifyDataSetChanged();
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/java/com/example/week01_project2/ImageAdapter.java:33: Warning: It will always be more efficient to use more specific change events if you can. Rely on notifyDataSetChanged as a last resort. [NotifyDataSetChanged]
+        notifyDataSetChanged();
+        ~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "NotifyDataSetChanged":
+   The RecyclerView adapter's onNotifyDataSetChanged method does not specify
+   what about the data set has changed, forcing any observers to assume that
+   all existing items and structure may no longer be valid. `LayoutManager`s
+   will be forced to fully rebind and relayout all visible views.
+
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/layout/camera.xml:10: Warning: Possible overdraw: Root element paints background @android:color/white with a theme that also paints a background (inferred theme is @style/Theme.Week01_project2) [Overdraw]
+    android:background="@android:color/white"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "Overdraw":
+   If you set a background drawable on a root view, then you should use a
+   custom theme where the theme background is null. Otherwise, the theme
+   background will be painted first, only to have your custom background
+   completely cover it; this is called "overdraw".
+
+   NOTE: This detector relies on figuring out which layouts are associated
+   with which activities based on scanning the Java code, and it's currently
+   doing that using an inexact pattern matching algorithm. Therefore, it can
+   incorrectly conclude which activity the layout is associated with and then
+   wrongly complain that a background-theme is hidden.
+
+   If you want your custom background on multiple pages, then you should
+   consider making a custom theme with your custom background and just using
+   that theme instead of a root element background.
+
+   Of course it's possible that your custom drawable is translucent and you
+   want it to be mixed with the background. However, you will get better
+   performance if you pre-mix the background with your drawable and use that
+   resulting image or color as a custom theme background instead.
+
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/values/colors.xml:3: Warning: The resource R.color.black appears to be unused [UnusedResources]
+    <color name="black">#FF000000</color>
+           ~~~~~~~~~~~~
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/values/colors.xml:4: Warning: The resource R.color.white appears to be unused [UnusedResources]
+    <color name="white">#FFFFFFFF</color>
+           ~~~~~~~~~~~~
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/fan.jpg: Warning: The resource R.drawable.fan appears to be unused [UnusedResources]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/fanfan.png: Warning: The resource R.drawable.fanfan appears to be unused [UnusedResources]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/fffann.png: Warning: The resource R.drawable.fffann appears to be unused [UnusedResources]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/hey.jpeg: Warning: The resource R.drawable.hey appears to be unused [UnusedResources]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/heyyy.jpg: Warning: The resource R.drawable.heyyy appears to be unused [UnusedResources]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/home_background.jpg: Warning: The resource R.drawable.home_background appears to be unused [UnusedResources]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/home_background2.jpg: Warning: The resource R.drawable.home_background2 appears to be unused [UnusedResources]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/list_item.xml:2: Warning: The resource R.drawable.list_item appears to be unused [UnusedResources]
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+^
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/nupzuk.png: Warning: The resource R.drawable.nupzuk appears to be unused [UnusedResources]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/p10.jpeg: Warning: The resource R.drawable.p10 appears to be unused [UnusedResources]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/p11.jpeg: Warning: The resource R.drawable.p11 appears to be unused [UnusedResources]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/p12.jpeg: Warning: The resource R.drawable.p12 appears to be unused [UnusedResources]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/p13.jpg: Warning: The resource R.drawable.p13 appears to be unused [UnusedResources]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/p14.jpeg: Warning: The resource R.drawable.p14 appears to be unused [UnusedResources]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/p15.png: Warning: The resource R.drawable.p15 appears to be unused [UnusedResources]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/p16.jpeg: Warning: The resource R.drawable.p16 appears to be unused [UnusedResources]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/p17.png: Warning: The resource R.drawable.p17 appears to be unused [UnusedResources]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/p18.jpeg: Warning: The resource R.drawable.p18 appears to be unused [UnusedResources]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/p19.jpeg: Warning: The resource R.drawable.p19 appears to be unused [UnusedResources]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/p2.jpeg: Warning: The resource R.drawable.p2 appears to be unused [UnusedResources]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/p20.jpeg: Warning: The resource R.drawable.p20 appears to be unused [UnusedResources]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/p3.jpeg: Warning: The resource R.drawable.p3 appears to be unused [UnusedResources]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/p4.jpeg: Warning: The resource R.drawable.p4 appears to be unused [UnusedResources]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/p5.jpeg: Warning: The resource R.drawable.p5 appears to be unused [UnusedResources]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/p6.jpeg: Warning: The resource R.drawable.p6 appears to be unused [UnusedResources]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/p7.png: Warning: The resource R.drawable.p7 appears to be unused [UnusedResources]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/p8.jpeg: Warning: The resource R.drawable.p8 appears to be unused [UnusedResources]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/p9.jpeg: Warning: The resource R.drawable.p9 appears to be unused [UnusedResources]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/phone.jpg: Warning: The resource R.drawable.phone appears to be unused [UnusedResources]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/rounded.xml:2: Warning: The resource R.drawable.rounded appears to be unused [UnusedResources]
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+^
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/sample.jpg: Warning: The resource R.drawable.sample appears to be unused [UnusedResources]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/values/strings.xml:4: Warning: The resource R.string.main_fragment_label appears to be unused [UnusedResources]
+    <string name="main_fragment_label">What do you want?</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/values/strings.xml:5: Warning: The resource R.string.second_fragment_label appears to be unused [UnusedResources]
+    <string name="second_fragment_label">Second Fragment</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/values/strings.xml:6: Warning: The resource R.string.next appears to be unused [UnusedResources]
+    <string name="next">Next</string>
+            ~~~~~~~~~~~
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/values/strings.xml:9: Warning: The resource R.string.previous appears to be unused [UnusedResources]
+    <string name="previous">Previous</string>
+            ~~~~~~~~~~~~~~~
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/values/strings.xml:11: Warning: The resource R.string.hello_blank_fragment appears to be unused [UnusedResources]
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/values/strings.xml:12: Warning: The resource R.string.title_activity_gptapi_java appears to be unused [UnusedResources]
+    <string name="title_activity_gptapi.java">GPTApi.java</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/tiger.png: Warning: The resource R.drawable.tiger appears to be unused [UnusedResources]
+
+   Explanation for issues of type "UnusedResources":
+   Unused resources make applications larger and slow down builds.
+
+
+   The unused resource check can ignore tests. If you want to include
+   resources that are only referenced from tests, consider packaging them in a
+   test source set instead.
+
+   You can include test sources in the unused resource check by setting the
+   system property lint.unused-resources.include-tests =true, and to exclude
+   them (usually for performance reasons), use
+   lint.unused-resources.exclude-tests =true.
+   ,
+
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/angry_nupjuk.png: Warning: Found bitmap drawable res/drawable/angry_nupjuk.png in densityless folder [IconLocation]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/ayyaa.png: Warning: Found bitmap drawable res/drawable/ayyaa.png in densityless folder [IconLocation]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/contact_background.jpg: Warning: Found bitmap drawable res/drawable/contact_background.jpg in densityless folder [IconLocation]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/cool_background.jpg: Warning: Found bitmap drawable res/drawable/cool_background.jpg in densityless folder [IconLocation]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/cool_nupjuk.png: Warning: Found bitmap drawable res/drawable/cool_nupjuk.png in densityless folder [IconLocation]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/fan.jpg: Warning: Found bitmap drawable res/drawable/fan.jpg in densityless folder [IconLocation]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/fanfan.png: Warning: Found bitmap drawable res/drawable/fanfan.png in densityless folder [IconLocation]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/fffann.png: Warning: Found bitmap drawable res/drawable/fffann.png in densityless folder [IconLocation]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/file.png: Warning: Found bitmap drawable res/drawable/file.png in densityless folder [IconLocation]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/hey.jpeg: Warning: Found bitmap drawable res/drawable/hey.jpeg in densityless folder [IconLocation]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/heyyy.jpg: Warning: Found bitmap drawable res/drawable/heyyy.jpg in densityless folder [IconLocation]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/home_background.jpg: Warning: Found bitmap drawable res/drawable/home_background.jpg in densityless folder [IconLocation]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/home_background2.jpg: Warning: Found bitmap drawable res/drawable/home_background2.jpg in densityless folder [IconLocation]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/home_background3.png: Warning: Found bitmap drawable res/drawable/home_background3.png in densityless folder [IconLocation]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/hot_background.jpg: Warning: Found bitmap drawable res/drawable/hot_background.jpg in densityless folder [IconLocation]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/hot_nupjuk.png: Warning: Found bitmap drawable res/drawable/hot_nupjuk.png in densityless folder [IconLocation]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/nupzuk.png: Warning: Found bitmap drawable res/drawable/nupzuk.png in densityless folder [IconLocation]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/p1.jpeg: Warning: Found bitmap drawable res/drawable/p1.jpeg in densityless folder [IconLocation]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/p10.jpeg: Warning: Found bitmap drawable res/drawable/p10.jpeg in densityless folder [IconLocation]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/p11.jpeg: Warning: Found bitmap drawable res/drawable/p11.jpeg in densityless folder [IconLocation]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/p12.jpeg: Warning: Found bitmap drawable res/drawable/p12.jpeg in densityless folder [IconLocation]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/p13.jpg: Warning: Found bitmap drawable res/drawable/p13.jpg in densityless folder [IconLocation]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/p14.jpeg: Warning: Found bitmap drawable res/drawable/p14.jpeg in densityless folder [IconLocation]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/p15.png: Warning: Found bitmap drawable res/drawable/p15.png in densityless folder [IconLocation]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/p16.jpeg: Warning: Found bitmap drawable res/drawable/p16.jpeg in densityless folder [IconLocation]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/p17.png: Warning: Found bitmap drawable res/drawable/p17.png in densityless folder [IconLocation]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/p18.jpeg: Warning: Found bitmap drawable res/drawable/p18.jpeg in densityless folder [IconLocation]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/p19.jpeg: Warning: Found bitmap drawable res/drawable/p19.jpeg in densityless folder [IconLocation]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/p2.jpeg: Warning: Found bitmap drawable res/drawable/p2.jpeg in densityless folder [IconLocation]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/p20.jpeg: Warning: Found bitmap drawable res/drawable/p20.jpeg in densityless folder [IconLocation]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/p3.jpeg: Warning: Found bitmap drawable res/drawable/p3.jpeg in densityless folder [IconLocation]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/p4.jpeg: Warning: Found bitmap drawable res/drawable/p4.jpeg in densityless folder [IconLocation]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/p5.jpeg: Warning: Found bitmap drawable res/drawable/p5.jpeg in densityless folder [IconLocation]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/p6.jpeg: Warning: Found bitmap drawable res/drawable/p6.jpeg in densityless folder [IconLocation]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/p7.png: Warning: Found bitmap drawable res/drawable/p7.png in densityless folder [IconLocation]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/p8.jpeg: Warning: Found bitmap drawable res/drawable/p8.jpeg in densityless folder [IconLocation]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/p9.jpeg: Warning: Found bitmap drawable res/drawable/p9.jpeg in densityless folder [IconLocation]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/phone.jpg: Warning: Found bitmap drawable res/drawable/phone.jpg in densityless folder [IconLocation]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/plus.png: Warning: Found bitmap drawable res/drawable/plus.png in densityless folder [IconLocation]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/sample.jpg: Warning: Found bitmap drawable res/drawable/sample.jpg in densityless folder [IconLocation]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/tiger.png: Warning: Found bitmap drawable res/drawable/tiger.png in densityless folder [IconLocation]
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/drawable/wow.png: Warning: Found bitmap drawable res/drawable/wow.png in densityless folder [IconLocation]
+
+   Explanation for issues of type "IconLocation":
+   The res/drawable folder is intended for density-independent graphics such
+   as shapes defined in XML. For bitmaps, move it to drawable-mdpi and
+   consider providing higher and lower resolution versions in drawable-ldpi,
+   drawable-hdpi and drawable-xhdpi. If the icon really is density independent
+   (for example a solid color) you can place it in drawable-nodpi.
+
+   https://developer.android.com/guide/practices/screens_support.html
+
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/build.gradle.kts:63: Warning: Use version catalog instead [UseTomlInstead]
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.6") // Navigation
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/build.gradle.kts:64: Warning: Use version catalog instead [UseTomlInstead]
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.6") // Navigation
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/build.gradle.kts:65: Warning: Use version catalog instead (androidx.constraintlayout:constraintlayout is already available as constraintlayout, but using version 2.2.0 instead) [UseTomlInstead]
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/build.gradle.kts:66: Warning: Use version catalog instead [UseTomlInstead]
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/build.gradle.kts:67: Warning: Use version catalog instead [UseTomlInstead]
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "UseTomlInstead":
+   If your project is using a libs.versions.toml file, you should place all
+   Gradle dependencies in the TOML file. This lint check looks for version
+   declarations outside of the TOML file and suggests moving them (and in the
+   IDE, provides a quickfix to performing the operation automatically).
+
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/java/com/example/week01_project2/GalleryActivity.java:83: Warning: Custom view `RecyclerView` has setOnTouchListener called on it but does not override performClick [ClickableViewAccessibility]
+        recyclerView.setOnTouchListener((v, event) -> {
+        ^
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/java/com/example/week01_project2/GalleryActivity.java:83: Warning: onTouch lambda should call View#performClick when a click is detected [ClickableViewAccessibility]
+        recyclerView.setOnTouchListener((v, event) -> {
+                                        ^
+
+   Explanation for issues of type "ClickableViewAccessibility":
+   If a View that overrides onTouchEvent or uses an OnTouchListener does not
+   also implement performClick and call it when clicks are detected, the View
+   may not handle accessibility actions properly. Logic handling the click
+   actions should ideally be placed in View#performClick as some accessibility
+   services invoke performClick when a click action should occur.
+
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/layout/camera.xml:13: Warning: Missing contentDescription attribute on image [ContentDescription]
+    <ImageView
+     ~~~~~~~~~
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/layout/contact_profile.xml:6: Warning: Missing contentDescription attribute on image [ContentDescription]
+    <ImageView
+     ~~~~~~~~~
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/layout/contact_profile.xml:48: Warning: Missing contentDescription attribute on image [ContentDescription]
+            <ImageView
+             ~~~~~~~~~
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/layout/contact_profile.xml:213: Warning: Missing contentDescription attribute on image [ContentDescription]
+        <ImageView
+         ~~~~~~~~~
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/layout/fan.xml:10: Warning: Missing contentDescription attribute on image [ContentDescription]
+    <ImageView
+     ~~~~~~~~~
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/layout/fan.xml:20: Warning: Missing contentDescription attribute on image [ContentDescription]
+    <ImageView
+     ~~~~~~~~~
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/layout/fragment_home.xml:12: Warning: Missing contentDescription attribute on image [ContentDescription]
+        <ImageView
+         ~~~~~~~~~
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/layout/fragment_image.xml:12: Warning: Missing contentDescription attribute on image [ContentDescription]
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/layout/image_item.xml:9: Warning: Missing contentDescription attribute on image [ContentDescription]
+    <ImageView
+     ~~~~~~~~~
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/layout/list_item.xml:35: Warning: Missing contentDescription attribute on image [ContentDescription]
+            <ImageView
+             ~~~~~~~~~
+
+   Explanation for issues of type "ContentDescription":
+   Non-textual widgets like ImageViews and ImageButtons should use the
+   contentDescription attribute to specify a textual description of the widget
+   such that screen readers and other accessibility tools can adequately
+   describe the user interface.
+
+   Note that elements in application screens that are purely decorative and do
+   not provide any content or enable a user action should not have
+   accessibility content descriptions. In this case, set their descriptions to
+   @null. If your app's minSdkVersion is 16 or higher, you can instead set
+   these graphical elements' android:importantForAccessibility attributes to
+   no.
+
+   Note that for text fields, you should not set both the hint and the
+   contentDescription attributes since the hint will never be shown. Just set
+   the hint.
+
+   https://developer.android.com/guide/topics/ui/accessibility/apps#special-cases
+
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/layout/camera.xml:28: Warning: Hardcoded string "Show Details", should use @string resource [HardcodedText]
+        android:text="Show Details" />
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/layout/contact_profile.xml:119: Warning: Hardcoded string "Info", should use @string resource [HardcodedText]
+                android:text="Info"
+                ~~~~~~~~~~~~~~~~~~~
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/layout/contact_profile.xml:130: Warning: Hardcoded string "Name", should use @string resource [HardcodedText]
+                android:text="Name"
+                ~~~~~~~~~~~~~~~~~~~
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/layout/contact_profile.xml:141: Warning: Hardcoded string "namenamename", should use @string resource [HardcodedText]
+                android:text="namenamename"
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/layout/contact_profile.xml:151: Warning: Hardcoded string "Mobile", should use @string resource [HardcodedText]
+                android:text="Mobile"
+                ~~~~~~~~~~~~~~~~~~~~~
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/layout/contact_profile.xml:162: Warning: Hardcoded string "010-1111-1111", should use @string resource [HardcodedText]
+                android:text="010-1111-1111"
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/layout/contact_profile.xml:172: Warning: Hardcoded string "Email", should use @string resource [HardcodedText]
+                android:text="Email"
+                ~~~~~~~~~~~~~~~~~~~~
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/layout/contact_profile.xml:183: Warning: Hardcoded string "010-1111-1111", should use @string resource [HardcodedText]
+                android:text="010-1111-1111"
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/layout/contact_profile.xml:193: Warning: Hardcoded string "Birthday", should use @string resource [HardcodedText]
+                android:text="Birthday"
+                ~~~~~~~~~~~~~~~~~~~~~~~
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/layout/contact_profile.xml:205: Warning: Hardcoded string "2003-09-20", should use @string resource [HardcodedText]
+                android:text="2003-09-20"
+                ~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/layout/fan.xml:35: Warning: Hardcoded string "Blow!", should use @string resource [HardcodedText]
+        android:text="Blow!"
+        ~~~~~~~~~~~~~~~~~~~~
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/layout/fan.xml:47: Warning: Hardcoded string "Talk!", should use @string resource [HardcodedText]
+        android:text="Talk!"
+        ~~~~~~~~~~~~~~~~~~~~
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/layout/fragment_home.xml:59: Warning: Hardcoded string "GUESS WHAT?", should use @string resource [HardcodedText]
+            android:text="GUESS WHAT?"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/layout/list_item.xml:50: Warning: Hardcoded string "namenamename", should use @string resource [HardcodedText]
+            android:text="namenamename"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/seoeun/AndroidStudioProjects/week01_project2/app/src/main/res/layout/list_item.xml:62: Warning: Hardcoded string "01012345678", should use @string resource [HardcodedText]
+            android:text="01012345678"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "HardcodedText":
+   Hardcoding text attributes directly in layout files is bad for several
+   reasons:
+
+   * When creating configuration variations (for example for landscape or
+   portrait) you have to repeat the actual text (and keep it up to date when
+   making changes)
+
+   * The application cannot be translated to other languages by just adding
+   new translations for existing string resources.
+
+   There are quickfixes to automatically extract this hardcoded string into a
+   resource lookup.
+
+0 errors, 133 warnings

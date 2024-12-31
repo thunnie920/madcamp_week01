@@ -1,0 +1,72 @@
+[
+  {
+    "picture": "p1",
+    "name": "유관순",
+    "telNum": "010-0808-1515",
+    "email": "korea@korea.com",
+    "birthDay": "08.15"
+  },
+  {
+    "picture": "p2",
+    "name": "홍길동",
+    "telNum": "010-1234-5678",
+    "email": "gildong@chosun.com",
+    "birthDay": "03.05"
+  },
+  {
+    "picture": "p3",
+    "name": "유재석",
+    "telNum": "010-7777-8888",
+    "email": "leejs@naver.com",
+    "birthDay": "07.07"
+  },
+  {
+    "picture": "p4",
+    "name": "엘사",
+    "telNum": "010-3333-9999",
+    "email": "elsa@gmail.com",
+    "birthDay": "12.25"
+  },
+  {
+    "picture": "p5",
+    "name": "모피어스",
+    "telNum": "010-2222-3434",
+    "email": "morpheus@gmail.com",
+    "birthDay": "07.12"
+  },
+  {
+    "picture": "p1",
+    "name": "유관순",
+    "telNum": "010-0808-1515",
+    "email": "korea@korea.com",
+    "birthDay": "08.15"
+  },
+  {
+    "picture": "p2",
+    "name": "홍길동",
+    "telNum": "010-1234-5678",
+    "email": "gildong@chosun.com",
+    "birthDay": "03.05"
+  },
+  {
+    "picture": "p3",
+    "name": "유재석",
+    "telNum": "010-7777-8888",
+    "email": "leejs@naver.com",
+    "birthDay": "07.07"
+  },
+  {
+    "picture": "p4",
+    "name": "엘사",
+    "telNum": "010-3333-9999",
+    "email": "elsa@gmail.com",
+    "birthDay": "12.25"
+  },
+  {
+    "picture": "p5",
+    "name": "모피어스",
+    "telNum": "010-2222-3434",
+    "email": "morpheus@gmail.com",
+    "birthDay": "07.12"
+  }
+]
