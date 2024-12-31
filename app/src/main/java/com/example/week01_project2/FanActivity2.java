@@ -15,19 +15,23 @@ import android.Manifest;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import android.graphics.Path; // 올바른 Path 클래스 임포트 추가
+import android.graphics.Path;
 
 public class FanActivity2 extends AppCompatActivity {
-    private Handler speedHandler = new Handler(); // 핸들러 생성
-    private long autoDecayInterval = 2000; // 속도 감소 주기 (2초)
-    private float decayFactor = 1.1f; // 속도 감소 계수 (10%씩 느려짐)
-    private boolean isDecaying = true; // 자동 감속 활성화 여부
+    private Handler speedHandler = new Handler();
+    private long autoDecayInterval = 2000;
+    private float decayFactor = 1.1f;
+    private boolean isDecaying = true;
+    private boolean isStopped = false;
     private ObjectAnimator rotateAnimator;
-    private ObjectAnimator moveAlongRectangle; // 넙죽이 경로 애니메이션
-    private long baseDuration = 2000; // 기본 회전 시간
-    private static final int SAMPLE_RATE = 16000; // 샘플링 레이트
+    private ObjectAnimator moveAlongRectangle;
+    private long baseDuration = 2000;
+    private ConstraintLayout layout;
+
+    private static final int SAMPLE_RATE = 16000;
     private static final int BUFFER_SIZE = AudioRecord.getMinBufferSize(
             SAMPLE_RATE,
             AudioFormat.CHANNEL_IN_MONO,
@@ -37,9 +41,9 @@ public class FanActivity2 extends AppCompatActivity {
         long nupjukSpeedDuration;
 
         if (isCool) {
-            nupjukSpeedDuration = Math.min(6000, fanSpeedDuration * 2); // 팬이 시원할 때 더 천천히 움직임
+            nupjukSpeedDuration = Math.min(6000, fanSpeedDuration * 2); // 시원할 때 더 천천히 움직임
         } else {
-            nupjukSpeedDuration = Math.max(500, 6000 - fanSpeedDuration); // 팬이 더운 상태일 때 더 빠르게 움직임
+            nupjukSpeedDuration = Math.max(500, 6000 - fanSpeedDuration); // 더운 상태일 때 더 빠르게 움직임
         }
 
         moveAlongRectangle.setDuration(nupjukSpeedDuration);
@@ -51,8 +55,8 @@ public class FanActivity2 extends AppCompatActivity {
     }
     @Override
     public void onRequestPermissionsResult(int requestCode,
-                                              @NonNull String[] permissions,
-                                              @NonNull int[] grantResults) {
+                                           @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == 1000) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
@@ -69,6 +73,9 @@ public class FanActivity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fan);
 
+        layout = findViewById(R.id.fan_layout);
+        layout.setBackgroundResource(R.drawable.hot_background);
+
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
                 != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this,
@@ -76,46 +83,58 @@ public class FanActivity2 extends AppCompatActivity {
         }
 
         ImageView fanfan = findViewById(R.id.fanfan);
-        ImageView hotNupjuk = findViewById(R.id.hot_nupjuk);
+        ImageView nupjuk = findViewById(R.id.hot_nupjuk);
         Button speedUpButton = findViewById(R.id.speedUpButton);
 
-        // 팬 회전 애니메이션
         rotateAnimator = ObjectAnimator.ofFloat(fanfan, "rotation", 0f, 360f);
         rotateAnimator.setDuration(baseDuration);
         rotateAnimator.setRepeatCount(ObjectAnimator.INFINITE);
         rotateAnimator.setInterpolator(null);
         rotateAnimator.start();
 
-        // 넙죽이 이동 애니메이션
-        moveAlongRectangle = createRectangleAnimation(hotNupjuk);
-        moveAlongRectangle.start(); // 넙죽이 이동 시작
+        moveAlongRectangle = createRectangleAnimation(nupjuk);
+        double initialDecibel = 0;
+        adjustRectangleAnimationSpeed(initialDecibel);
+        nupjuk.setImageResource(R.drawable.hot_nupjuk);
+        moveAlongRectangle.start();
 
-        // 초기 넙죽이 속도 설정
-        updateNupjukSpeed((long) baseDuration, false);
-
-        // 버튼 클릭 시 데시벨 측정 및 상태 변경
-        speedUpButton.setOnClickListener(v -> measureDecibelAndAdjustSpeed(hotNupjuk));
-
-        // 자동 감속 시작
+        speedUpButton.setOnClickListener(v -> measureDecibelAndAdjustSpeed(nupjuk));
         startSpeedDecay();
     }
 
     private ObjectAnimator createRectangleAnimation(ImageView hotNupjuk) {
         Path rectanglePath = new Path();
-        rectanglePath.moveTo(-200f, 0f); // 시작점 (왼쪽 아래)
-        rectanglePath.lineTo(200f, 0f); // 오른쪽 아래로 이동
-        rectanglePath.lineTo(200f, -200f); // 오른쪽 위로 이동
-        rectanglePath.lineTo(-200f, -200f); // 왼쪽 위로 이동
-        rectanglePath.lineTo(-200f, 0f); // 시작점으로 돌아옴
+        rectanglePath.moveTo(-200f, 100f);
+        rectanglePath.lineTo(200f, 100f);
+        rectanglePath.lineTo(200f, -200f);
+        rectanglePath.lineTo(-200f, -200f);
+        rectanglePath.lineTo(-200f, 100f);
 
         ObjectAnimator moveAlongRectangle = ObjectAnimator.ofFloat(hotNupjuk, "translationX", "translationY", rectanglePath);
-        moveAlongRectangle.setDuration(3000); // 3초 동안 사각형 이동
-        moveAlongRectangle.setRepeatCount(ValueAnimator.INFINITE); // 무한 반복
-        moveAlongRectangle.setRepeatMode(ValueAnimator.RESTART); // 처음부터 다시 시작
+        moveAlongRectangle.setDuration(3000);
+        moveAlongRectangle.setRepeatCount(ValueAnimator.INFINITE);
+        moveAlongRectangle.setRepeatMode(ValueAnimator.RESTART);
         return moveAlongRectangle;
     }
 
-    private void measureDecibelAndAdjustSpeed(ImageView hotNupjuk) {
+    private void adjustRectangleAnimationSpeed(double decibel) {
+        if (decibel < 10) decibel = 10;
+        if (decibel > 70) decibel = 70;
+
+        long newDuration = (long) (500 + (decibel - 10) * 100);
+
+        runOnUiThread(() -> {
+            if (moveAlongRectangle != null) {
+                moveAlongRectangle.setDuration(newDuration);
+                if (!moveAlongRectangle.isRunning()) {
+                    moveAlongRectangle.start();
+                }
+                Log.d("FanActivity2", "Adjusted Rectangle Animation Speed. New Duration: " + newDuration);
+            }
+        });
+    }
+
+    private void measureDecibelAndAdjustSpeed(ImageView nupjuk) {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
                 != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this,
@@ -162,17 +181,15 @@ public class FanActivity2 extends AppCompatActivity {
                             "3초 측정 완료! 평균 데시벨: " + (int) averageDecibel + " dB",
                             Toast.LENGTH_SHORT).show();
 
-                    if (averageDecibel > 50) {
-                        hotNupjuk.setImageResource(R.drawable.cool_nupjuk);
-                        if (!moveAlongRectangle.isRunning()) {
-                            moveAlongRectangle.start();
-                        }
+                    if (averageDecibel > 60) {
+                        nupjuk.setImageResource(R.drawable.cool_nupjuk);
+                        layout.setBackgroundResource(R.drawable.cool_background);
                     } else {
-                        hotNupjuk.setImageResource(R.drawable.hot_nupjuk);
-                        if (moveAlongRectangle.isRunning()) {
-                            moveAlongRectangle.cancel();
-                        }
+                        nupjuk.setImageResource(R.drawable.hot_nupjuk);
+                        layout.setBackgroundResource(R.drawable.hot_background);
                     }
+
+                    adjustRectangleAnimationSpeed(averageDecibel);
                 });
 
                 adjustFanSpeed(averageDecibel);
@@ -188,8 +205,6 @@ public class FanActivity2 extends AppCompatActivity {
             }
         }).start();
     }
-
-    private boolean isStopped = false; // 팬이 중지 상태인지 여부
 
     private void startSpeedDecay() {
         speedHandler.postDelayed(new Runnable() {
