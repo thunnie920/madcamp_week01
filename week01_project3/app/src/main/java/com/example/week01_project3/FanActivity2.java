@@ -118,6 +118,14 @@ public class FanActivity2 extends AppCompatActivity {
 
         // 버튼 클릭 시 데시벨 측정 후 팬 속도 & 상태 조절
         speedUpButton.setOnClickListener(v -> measureDecibelAndAdjustSpeed());
+        findViewById(R.id.talkButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 최신 isHot 값 사용
+                fanActivity3 = new FanActivity3(v.getContext(), isHot);
+                fanActivity3.onClick(v); // 클릭 이벤트 처리
+            }
+        });
     }
 
     /**
