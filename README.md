@@ -25,7 +25,8 @@
 
 애플리케이션의 APK 파일은 아래 링크를 통해 다운로드할 수 있습니다:
 
-[세이빙 넙죽 APK 다운로드](APK_파일_링크)
+[save_nupjuk.apk 다운로드](https://raw.githubusercontent.com/thunnie920/madcamp_week01/branch4/save_nupjuk.apk)
+
 
 
 
