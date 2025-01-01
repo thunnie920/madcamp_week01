@@ -34,6 +34,7 @@ public class FanActivity2 extends AppCompatActivity {
     private boolean isHorangExecuted = false; // 플래그 변수
 
     private ImageView nupjuk;
+    private int talkCount = 0;
     private ImageButton speedUpButton;
     private ObjectAnimator rotateAnimator;
     private ObjectAnimator moveAlongRectangle;
@@ -134,9 +135,14 @@ public class FanActivity2 extends AppCompatActivity {
                 if (isHorangExecuted) {
                     Toast.makeText(v.getContext(), "넙죽이가 잡혀갔어요", Toast.LENGTH_SHORT).show();
                 } else {
-                    handler.removeCallbacks(horangRunnable);
-                    handler.postDelayed(horangRunnable, 20000);
-                    fanActivity3.onClick(v); // 클릭 이벤트 처리
+                    talkCount++; // 대화 카운트 증가
+                    if (talkCount >= 4) {
+                        fanActivity3.onClick(v); // 4번 이상 대화하면 상태를 Cool로 설정
+                    } else {
+                        handler.removeCallbacks(horangRunnable); // 이전 타이머 제거
+                        handler.postDelayed(horangRunnable, 30000); // 타이머 30초로 초기화
+                        fanActivity3.onClick(v); // 클릭 이벤트 처리
+                    }
                 }
             }
         });
@@ -161,7 +167,7 @@ public class FanActivity2 extends AppCompatActivity {
         nupjuk.setImageResource(R.drawable.cool_nupjuk);
         isHot = false;
         Log.d("FanActivity2", "상태 변경: Cool");
-
+        talkCount = 0;
         handler.removeCallbacks(horangRunnable);
     }
 
