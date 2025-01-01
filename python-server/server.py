@@ -1,19 +1,34 @@
 from flask import Flask, request, jsonify, send_from_directory
-from dotenv import load_dotenv
 import os
 from gtts import gTTS
 import uuid
-# new
 from openai import OpenAI
 import logging
+import subprocess
 
-# .env 파일 로드
-load_dotenv()
+# Secret Manager에서 API 키 가져오는 함수
+def get_secret(secret_name):
+    try:
+        result = subprocess.run(
+            ["gcloud", "secrets", "versions", "access", "latest", f"--secret={secret_name}"],
+            stdout=subprocess.PIPE,
+            text=True
+        )
+        return result.stdout.strip()
+    except Exception as e:
+        logging.error(f"Secret Manager에서 API 키를 가져오는 데 실패했습니다: {e}")
+        return None
 
+# OpenAI API 키 가져오기
+openai_api_key = get_secret("OPENAI_API_KEY")
+if not openai_api_key:
+    raise ValueError("OPENAI_API_KEY를 Secret Manager에서 가져오지 못했습니다.")
+
+# Flask 앱 초기화
 app = Flask(__name__)
 
 # OpenAI 클라이언트 초기화
-client = OpenAI(api_key=os.environ['OPENAI_API_KEY'])
+client = OpenAI(api_key=openai_api_key)
 
 # 오디오 파일 저장 디렉토리 설정
 AUDIO_SAVE_DIR = os.path.abspath("./audio_files")
@@ -24,7 +39,7 @@ if not os.path.exists(AUDIO_SAVE_DIR):
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 
 # Chat Completion 생성 함수
-def create_chat_completion(system_input, user_input, model="gpt-3.5-turbo", temperature=1.0, max_tokens=150):
+def create_chat_completion(system_input, user_input, model="gpt-4o", temperature=1.0, max_tokens=150):
     try:
         response = client.chat.completions.create(
             model=model,
