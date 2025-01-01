@@ -15,6 +15,7 @@
 - **대화 생성:** GPT-4o API
 - **텍스트 음성 변환:** TextToSpeech API
 
+더 자세한 정보와 프로젝트의 세부 사항은 [프로젝트 노션 페이지](https://www.notion.so/SAVE-NUPJUK-16e817fde8e480db9917d6210f98909e?pvs=4)에서 확인하실 수 있습니다.
 
 ## 팀원
 
@@ -29,4 +30,4 @@
 [세이빙 넙죽 APK 다운로드](APK_파일_링크)
 
 
-더 자세한 정보와 프로젝트의 세부 사항은 [프로젝트 노션 페이지](https://www.notion.so/SAVE-NUPJUK-16e817fde8e480db9917d6210f98909e?pvs=4)에서 확인하실 수 있습니다.
+
