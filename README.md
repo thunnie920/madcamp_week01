@@ -11,9 +11,7 @@
 - **프로그래밍 언어:** Java
 - **프레임워크:** Android SDK
 - **네트워킹:** Retrofit
-- **음성 인식:** SpeechRecognizer API
 - **대화 생성:** GPT-4o API
-- **텍스트 음성 변환:** TextToSpeech API
 
 더 자세한 정보와 프로젝트의 세부 사항은 [프로젝트 노션 페이지](https://www.notion.so/SAVE-NUPJUK-16e817fde8e480db9917d6210f98909e?pvs=4)에서 확인하실 수 있습니다.
 
