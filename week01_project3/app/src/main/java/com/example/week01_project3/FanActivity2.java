@@ -141,7 +141,6 @@ public class FanActivity2 extends AppCompatActivity {
             }
         });
     }
-
     /**
      * Hot 상태로 즉시 전환
      */
@@ -292,7 +291,7 @@ public class FanActivity2 extends AppCompatActivity {
                 runOnUiThread(() -> {
                     Toast.makeText(this,
                             "평균 데시벨: " + (int) averageDecibelFinal + " dB",
-                            Toast.LENGTH_SHORT).show();if (averageDecibelFinal > 40) {
+                            Toast.LENGTH_SHORT).show();if (averageDecibelFinal > 50) {
                         set_cool();
                     } else {
                         scheduleSetHot();

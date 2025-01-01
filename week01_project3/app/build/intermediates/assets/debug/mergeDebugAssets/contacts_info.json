@@ -1,70 +1,70 @@
 [
   {
     "picture": "p1",
-    "name": "유관순",
+    "name": "이수현",
     "telNum": "010-0808-1515",
     "email": "korea@korea.com",
     "birthDay": "08.15"
   },
   {
     "picture": "p2",
-    "name": "홍길동",
+    "name": "박민재",
     "telNum": "010-1234-5678",
     "email": "gildong@chosun.com",
     "birthDay": "03.05"
   },
   {
     "picture": "p3",
-    "name": "유재석",
+    "name": "김다인",
     "telNum": "010-7777-8888",
     "email": "leejs@naver.com",
     "birthDay": "07.07"
   },
   {
     "picture": "p4",
-    "name": "엘사",
+    "name": "최성은",
     "telNum": "010-3333-9999",
     "email": "elsa@gmail.com",
     "birthDay": "12.25"
   },
   {
     "picture": "p5",
-    "name": "모피어스",
+    "name": "강우현",
     "telNum": "010-2222-3434",
     "email": "morpheus@gmail.com",
     "birthDay": "07.12"
   },
   {
-    "picture": "p1",
-    "name": "유관순",
+    "picture": "p6",
+    "name": "이수현",
     "telNum": "010-0808-1515",
     "email": "korea@korea.com",
     "birthDay": "08.15"
   },
   {
-    "picture": "p2",
-    "name": "홍길동",
+    "picture": "p7",
+    "name": "박민재",
     "telNum": "010-1234-5678",
     "email": "gildong@chosun.com",
     "birthDay": "03.05"
   },
   {
-    "picture": "p3",
-    "name": "유재석",
+    "picture": "p8",
+    "name": "김다인",
     "telNum": "010-7777-8888",
     "email": "leejs@naver.com",
     "birthDay": "07.07"
   },
   {
-    "picture": "p4",
-    "name": "엘사",
+    "picture": "p9",
+    "name": "최성은",
     "telNum": "010-3333-9999",
     "email": "elsa@gmail.com",
     "birthDay": "12.25"
   },
   {
-    "picture": "p5",
-    "name": "모피어스",
+    "picture": "p10",
+    "name": "강우현",
     "telNum": "010-2222-3434",
     "email": "morpheus@gmail.com",
     "birthDay": "07.12"

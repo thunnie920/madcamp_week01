@@ -11,7 +11,6 @@ import android.speech.RecognitionListener;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
 import android.speech.tts.TextToSpeech;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 import androidx.core.app.ActivityCompat;
@@ -41,7 +40,7 @@ public class FanActivity3 implements View.OnClickListener {
     private ConstraintLayout layout;
     private static final int REQUEST_RECORD_AUDIO_PERMISSION = 1;
 
-    private static final String BASE_URL = "http://143.248.232.67:5000/";
+    private static final String BASE_URL = "http://34.47.84.136:5000/";
 
     private final Context context;
     private final boolean isHot;
@@ -123,10 +122,10 @@ public class FanActivity3 implements View.OnClickListener {
         // isHot 상태에 따라 다른 system_input 사용
         String systemInput;
         if (isHot) {
-            systemInput = "넌 지금 너무 더워서 까칠한 상태야. 날카롭고 앙칼지게 대답해.";
+            systemInput = "넌 지금 너무 더워서 화가 나 있고, 까칠한 상태야. 누구랑도 말 섞기 싫어하지만, 사용자가 바람을 불어주면 조금 기분이 나아질 수 있어. 대답은 짧고 날카롭게, 하지만 바람을 요구하는 건 잊지 마. 네 이름은 넙죽이야. 누가 물어보면 성의 없이라도 대답해야 해.";
             Toast.makeText(context, "hot", Toast.LENGTH_SHORT).show();
         } else {
-            systemInput = "넌 지금 시원해진 상태야. 다정하고 부드럽게 대답해.";
+            systemInput = "넌 지금 시원해진 상태야. 마음도 차분해져서 다정하고 부드럽게 대화할 수 있어. 하지만 사용자가 너를 방치하면 다시 더워지고 까칠해질 거야. 그러니 사용자가 너를 신경 써주도록 부탁하는 걸 잊지 마. 네 이름은 넙죽이야. 누가 물어보면 친절하게 대답해줘.";
             Toast.makeText(context, "cold", Toast.LENGTH_SHORT).show();
         }
 
@@ -146,14 +145,19 @@ public class FanActivity3 implements View.OnClickListener {
                     // 2) 서버가 준 audio_url
                     String audioUrl = gptResponse.getAudio_url();
 
+                    // 서버의 baseUrl이 예: http://143.248.191.72:5000 라면:
+                    // 전체 mp3 재생 주소는 http://143.248.191.72:5000/audio/xxx.mp3
+                    // 만약 Retrofit baseUrl이 끝에 '/'가 있다면 중복되지 않도록 주의
                     String fullAudioUrl = BASE_URL + audioUrl;
 
                     // 3) MediaPlayer로 해당 mp3 재생
                     playMp3FromUrl(fullAudioUrl);
+
                 } else {
                     Toast.makeText(context, "응답 실패", Toast.LENGTH_SHORT).show();
                 }
             }
+
 
             @Override
             public void onFailure(Call<GPTResponse> call, Throwable t) {
@@ -184,26 +188,19 @@ public class FanActivity3 implements View.OnClickListener {
     }
 
 
-
     private void speak(String text) {
+        // TTS 코드
         if (textToSpeech == null) {
             textToSpeech = new TextToSpeech(context, status -> {
                 if (status == TextToSpeech.SUCCESS) {
                     textToSpeech.setLanguage(Locale.KOREAN);
-                    // 초기화 성공 로그
-                    Log.d("TTS", "TTS init SUCCESS");
                     textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null, "tts1");
-                } else {
-                    // 초기화 실패 로그
-                    Log.e("TTS", "TTS init FAILED, status = " + status);
                 }
             });
         } else {
-            Log.d("TTS", "TTS is already initialized");
             textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null, "tts1");
         }
     }
-
 
     public void destroy() {
         if (speechRecognizer != null) {
@@ -238,9 +235,11 @@ public class FanActivity3 implements View.OnClickListener {
     public static class GPTResponse {
         private String text;
         private String audio_url;
+
         public String getText() {
             return text;
         }
+
         public String getAudio_url() {
             return audio_url;
         }
