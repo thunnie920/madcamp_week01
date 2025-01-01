@@ -4,9 +4,11 @@ color black
 color white
 drawable angry_nupjuk
 drawable ayyaa
+drawable blow
 drawable button_background
 drawable button_background_2
 drawable button_background_3
+drawable chat
 drawable contact_background
 drawable cool_background
 drawable cool_nupjuk

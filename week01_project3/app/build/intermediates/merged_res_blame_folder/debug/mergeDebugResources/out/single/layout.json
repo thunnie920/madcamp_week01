@@ -1,38 +1,42 @@
 [
     {
-        "merged": "com.example.week01_project3.app-mergeDebugResources-71:/layout/fragment_contact.xml",
-        "source": "com.example.week01_project3.app-main-74:/layout/fragment_contact.xml"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-mergeDebugResources-71:/layout/image_item.xml",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/layout/image_item.xml"
     },
     {
-        "merged": "com.example.week01_project3.app-mergeDebugResources-71:/layout/image_item.xml",
-        "source": "com.example.week01_project3.app-main-74:/layout/image_item.xml"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-mergeDebugResources-71:/layout/fragment_contact.xml",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/layout/fragment_contact.xml"
     },
     {
-        "merged": "com.example.week01_project3.app-mergeDebugResources-71:/layout/fragment_image.xml",
-        "source": "com.example.week01_project3.app-main-74:/layout/fragment_image.xml"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-mergeDebugResources-71:/layout/fragment_home.xml",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/layout/fragment_home.xml"
     },
     {
-        "merged": "com.example.week01_project3.app-mergeDebugResources-71:/layout/activity_main.xml",
-        "source": "com.example.week01_project3.app-main-74:/layout/activity_main.xml"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-mergeDebugResources-71:/layout/fragment_image.xml",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/layout/fragment_image.xml"
     },
     {
-        "merged": "com.example.week01_project3.app-mergeDebugResources-71:/layout/list_item.xml",
-        "source": "com.example.week01_project3.app-main-74:/layout/list_item.xml"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-mergeDebugResources-71:/layout/camera.xml",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/layout/camera.xml"
     },
     {
-        "merged": "com.example.week01_project3.app-mergeDebugResources-71:/layout/fragment_home.xml",
-        "source": "com.example.week01_project3.app-main-74:/layout/fragment_home.xml"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-mergeDebugResources-71:/layout/contact_profile.xml",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/layout/contact_profile.xml"
     },
     {
-        "merged": "com.example.week01_project3.app-mergeDebugResources-71:/layout/contact_profile.xml",
-        "source": "com.example.week01_project3.app-main-74:/layout/contact_profile.xml"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-mergeDebugResources-71:/layout/activity_main.xml",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/layout/activity_main.xml"
+    },
+    {
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-mergeDebugResources-71:/layout/list_item.xml",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/layout/list_item.xml"
+    },
+    {
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-mergeDebugResources-71:/layout/fan.xml",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/layout/fan.xml"
     },
     {
         "merged": "com.example.week01_project3.app-mergeDebugResources-71:/layout/fan.xml",
         "source": "com.example.week01_project3.app-main-74:/layout/fan.xml"
-    },
-    {
-        "merged": "com.example.week01_project3.app-mergeDebugResources-71:/layout/camera.xml",
-        "source": "com.example.week01_project3.app-main-74:/layout/camera.xml"
     }
 ]

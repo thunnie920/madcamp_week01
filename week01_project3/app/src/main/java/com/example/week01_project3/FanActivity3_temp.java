@@ -25,7 +25,7 @@ import retrofit2.http.POST;
 
 public class FanActivity3_temp implements View.OnClickListener {
 
-    private static final String BASE_URL = "http://143.248.191.72:5000/"; // Flask 서버 URL
+    private static final String BASE_URL = "http://143.248.232.67:5000/"; // Flask 서버 URL
     private final Context context;
     private SpeechRecognizer speechRecognizer;
     private boolean isHot;

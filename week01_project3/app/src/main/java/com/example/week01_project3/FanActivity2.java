@@ -1,6 +1,7 @@
 package com.example.week01_project3;
 
 import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
@@ -14,7 +15,9 @@ import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.Manifest;
 import android.widget.RelativeLayout;
@@ -28,8 +31,10 @@ import androidx.core.content.ContextCompat;
 public class FanActivity2 extends AppCompatActivity {
     private ConstraintLayout layout;
     private ImageView fanfan;
+    private boolean isHorangExecuted = false; // 플래그 변수
+
     private ImageView nupjuk;
-    private Button speedUpButton;
+    private ImageButton speedUpButton;
     private ObjectAnimator rotateAnimator;
     private ObjectAnimator moveAlongRectangle;
     private boolean isStopped = true;
@@ -43,8 +48,10 @@ public class FanActivity2 extends AppCompatActivity {
     private Runnable setHotRunnable;
     private Handler handler = new Handler();
     private Runnable horangRunnable = new Runnable() {
+
         @Override
         public void run() {
+
             horang();
         }
     };
@@ -88,7 +95,6 @@ public class FanActivity2 extends AppCompatActivity {
                 Log.d("FanActivity2", "RECORD_AUDIO 권한 거부됨");
             }
         }
-
     }
 
     @Override
@@ -118,12 +124,20 @@ public class FanActivity2 extends AppCompatActivity {
 
         // 버튼 클릭 시 데시벨 측정 후 팬 속도 & 상태 조절
         speedUpButton.setOnClickListener(v -> measureDecibelAndAdjustSpeed());
+
         findViewById(R.id.talkButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // 최신 isHot 값 사용
                 fanActivity3 = new FanActivity3(v.getContext(), isHot);
-                fanActivity3.onClick(v); // 클릭 이벤트 처리
+
+                if (isHorangExecuted) {
+                    Toast.makeText(v.getContext(), "넙죽이가 잡혀갔어요", Toast.LENGTH_SHORT).show();
+                } else {
+                    handler.removeCallbacks(horangRunnable);
+                    handler.postDelayed(horangRunnable, 20000);
+                    fanActivity3.onClick(v); // 클릭 이벤트 처리
+                }
             }
         });
     }
@@ -138,7 +152,8 @@ public class FanActivity2 extends AppCompatActivity {
         Log.d("FanActivity2", "상태 변경: Hot");
 
         // 10초 후 horang 실행 예약
-        handler.postDelayed(horangRunnable, 1000);
+        handler.removeCallbacks(horangRunnable);
+        handler.postDelayed(horangRunnable, 10000);
     }
 
     // cool 상태
@@ -152,67 +167,41 @@ public class FanActivity2 extends AppCompatActivity {
     }
 
     private void horang() {
-        // 호랑이 이미지 동적 생성
+        if (isHorangExecuted) return;
+        isHorangExecuted = true;
+
         ImageView tiger = new ImageView(this);
         tiger.setImageResource(R.drawable.tiger);
 
-        // 호랑이 크기와 초기 위치 조정
-        RelativeLayout.LayoutParams tigerParams = new RelativeLayout.LayoutParams(
-                2000, // 너비 (px 단위)
-                2000  // 높이 (px 단위)
-        );
-        tigerParams.setMargins(-2000, 6000, 0, 0); // 화면 왼쪽 바깥으로 위치
+        RelativeLayout.LayoutParams tigerParams = new RelativeLayout.LayoutParams(2000, 2000);
+        tigerParams.setMargins(-2000, 0, 0, 0);
         tiger.setLayoutParams(tigerParams);
-
-        // 레이아웃에 호랑이 추가
         layout.addView(tiger);
 
-        // 넙죽이 초기 위치를 화면 가운데로 설정
         float screenWidth = getResources().getDisplayMetrics().widthPixels;
-        float screenHeight = getResources().getDisplayMetrics().heightPixels;
-        nupjuk.setX(screenWidth / 2 - nupjuk.getWidth() / 2); // 화면 중앙 X
-        nupjuk.setY(screenHeight / 2 - nupjuk.getHeight() / 2 + 1200); // 화면 중앙 Y
+        float nupjukCenterY = nupjuk.getY() + nupjuk.getHeight() / 2;
 
-        // 호랑이의 첫 번째 애니메이션 (중앙까지 이동)
-        float stopPositionX = screenWidth / 2 - 1000; // 호랑이가 멈출 위치
-        ObjectAnimator tigerToCenterAnimator = ObjectAnimator.ofFloat(tiger, "translationX", -2000, stopPositionX);
-        tigerToCenterAnimator.setDuration(700); // 1.5초 동안 이동
+        tiger.setY(nupjukCenterY - tiger.getHeight() / 2 - 1200);
 
-        // 정지 후 두 번째 애니메이션 (오른쪽 끝으로 이동)
-        ObjectAnimator tigerToEndAnimator = ObjectAnimator.ofFloat(tiger, "translationX", stopPositionX, screenWidth + 2000);
-        tigerToEndAnimator.setDuration(1000); // 2초 동안 이동
+        float stopPositionX = screenWidth / 2 - 1000;
+        ObjectAnimator tigerToCenter = ObjectAnimator.ofFloat(tiger, "translationX", -2000, stopPositionX).setDuration(700);
+        ObjectAnimator tigerToEnd = ObjectAnimator.ofFloat(tiger, "translationX", stopPositionX, screenWidth + 2000).setDuration(1000);
+        ObjectAnimator nupjukToEnd = ObjectAnimator.ofFloat(nupjuk, "translationX", nupjuk.getX(), screenWidth + 2000).setDuration(1000);
 
-        // 넙죽이는 두 번째 애니메이션부터 동작
-        ObjectAnimator nupjukAnimator = ObjectAnimator.ofFloat(nupjuk, "translationX", nupjuk.getX(), screenWidth + 2000);
-        nupjukAnimator.setDuration(1000); // 2초 동안 이동
+        AnimatorSet togetherAnimator = new AnimatorSet();
+        togetherAnimator.playTogether(tigerToEnd, nupjukToEnd);
 
-        // 중간에 멈추는 효과를 위해 딜레이 추가
-        AnimatorSet togetherAnimatorSet = new AnimatorSet();
-        togetherAnimatorSet.playTogether(tigerToEndAnimator, nupjukAnimator);
+        AnimatorSet fullAnimator = new AnimatorSet();
+        fullAnimator.playSequentially(tigerToCenter, togetherAnimator);
+        fullAnimator.start();
 
-        AnimatorSet fullAnimatorSet = new AnimatorSet();
-        fullAnimatorSet.playSequentially(tigerToCenterAnimator, togetherAnimatorSet);
-        fullAnimatorSet.start();
-
-        // 애니메이션 완료 후 처리
-        fullAnimatorSet.addListener(new AnimatorSet.AnimatorListener() {
+        fullAnimator.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
-                layout.removeView(tiger); // 호랑이 삭제
-                nupjuk.setVisibility(View.GONE); // 넙죽이 삭제
+                layout.removeView(tiger);
+                nupjuk.setVisibility(View.GONE);
             }
-
-            @Override
-            public void onAnimationStart(Animator animation) {}
-
-            @Override
-            public void onAnimationCancel(Animator animation) {}
-
-            @Override
-            public void onAnimationRepeat(Animator animation) {}
         });
-
-        Log.d("FanActivity2", "horang 함수 실행: 호랑이가 넙죽이를 데리고 균일하게 이동");
     }
 
     /**
@@ -228,6 +217,7 @@ public class FanActivity2 extends AppCompatActivity {
             set_hot();
             Log.d("FanActivity2", "set_hot() 호출됨 (타이머 완료)");
         };
+
         setHotHandler.postDelayed(setHotRunnable, 5000);
         Log.d("FanActivity2", "set_hot() 타이머 시작됨 (5초 후 호출)");
     }
@@ -301,8 +291,7 @@ public class FanActivity2 extends AppCompatActivity {
                 final double averageDecibelFinal = averageDecibel; // final 변수로 복사
                 runOnUiThread(() -> {
                     Toast.makeText(this,
-                            "평균 데시벨: " + (int) averageDecibelFinal + " dB\n" +
-                                    "지속 시간: " + duration + " ms",
+                            "평균 데시벨: " + (int) averageDecibelFinal + " dB",
                             Toast.LENGTH_SHORT).show();if (averageDecibelFinal > 40) {
                         set_cool();
                     } else {

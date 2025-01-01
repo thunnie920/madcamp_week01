@@ -4,7 +4,7 @@ package com.example.week01_project3.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -30,14 +30,14 @@ public final class FanBinding implements ViewBinding {
   public final ImageView hotNupjuk;
 
   @NonNull
-  public final Button speedUpButton;
+  public final ImageButton speedUpButton;
 
   @NonNull
-  public final Button talkButton;
+  public final ImageButton talkButton;
 
   private FanBinding(@NonNull ConstraintLayout rootView, @NonNull ConstraintLayout fanLayout,
-      @NonNull ImageView fanfan, @NonNull ImageView hotNupjuk, @NonNull Button speedUpButton,
-      @NonNull Button talkButton) {
+      @NonNull ImageView fanfan, @NonNull ImageView hotNupjuk, @NonNull ImageButton speedUpButton,
+      @NonNull ImageButton talkButton) {
     this.rootView = rootView;
     this.fanLayout = fanLayout;
     this.fanfan = fanfan;
@@ -88,13 +88,13 @@ public final class FanBinding implements ViewBinding {
       }
 
       id = R.id.speedUpButton;
-      Button speedUpButton = ViewBindings.findChildViewById(rootView, id);
+      ImageButton speedUpButton = ViewBindings.findChildViewById(rootView, id);
       if (speedUpButton == null) {
         break missingId;
       }
 
       id = R.id.talkButton;
-      Button talkButton = ViewBindings.findChildViewById(rootView, id);
+      ImageButton talkButton = ViewBindings.findChildViewById(rootView, id);
       if (talkButton == null) {
         break missingId;
       }

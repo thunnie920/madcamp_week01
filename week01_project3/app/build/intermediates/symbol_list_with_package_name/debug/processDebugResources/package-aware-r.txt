@@ -3049,6 +3049,7 @@ drawable angry_nupjuk
 drawable avd_hide_password
 drawable avd_show_password
 drawable ayyaa
+drawable blow
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
 drawable btn_checkbox_unchecked_mtrl
@@ -3060,6 +3061,7 @@ drawable btn_radio_on_to_off_mtrl_animation
 drawable button_background
 drawable button_background_2
 drawable button_background_3
+drawable chat
 drawable contact_background
 drawable cool_background
 drawable cool_nupjuk

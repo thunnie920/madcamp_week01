@@ -5,11 +5,13 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.speech.RecognitionListener;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
 import android.speech.tts.TextToSpeech;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 import androidx.core.app.ActivityCompat;
@@ -19,6 +21,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Locale;
 
@@ -38,7 +41,7 @@ public class FanActivity3 implements View.OnClickListener {
     private ConstraintLayout layout;
     private static final int REQUEST_RECORD_AUDIO_PERMISSION = 1;
 
-    private static final String BASE_URL = "http://143.248.191.72:5000/";
+    private static final String BASE_URL = "http://143.248.232.67:5000/";
 
     private final Context context;
     private final boolean isHot;
@@ -134,7 +137,19 @@ public class FanActivity3 implements View.OnClickListener {
             @Override
             public void onResponse(Call<GPTResponse> call, Response<GPTResponse> response) {
                 if (response.isSuccessful() && response.body() != null) {
-                    speak(response.body().getText());
+                    GPTResponse gptResponse = response.body();
+
+                    // 1) 텍스트는 원하는 대로 쓰세요
+                    String text = gptResponse.getText();
+                    Toast.makeText(context, "GPT 응답: " + text, Toast.LENGTH_SHORT).show();
+
+                    // 2) 서버가 준 audio_url
+                    String audioUrl = gptResponse.getAudio_url();
+
+                    String fullAudioUrl = BASE_URL + audioUrl;
+
+                    // 3) MediaPlayer로 해당 mp3 재생
+                    playMp3FromUrl(fullAudioUrl);
                 } else {
                     Toast.makeText(context, "응답 실패", Toast.LENGTH_SHORT).show();
                 }
@@ -147,19 +162,48 @@ public class FanActivity3 implements View.OnClickListener {
         });
     }
 
+    private void playMp3FromUrl(String mp3Url) {
+        try {
+            MediaPlayer mediaPlayer = new MediaPlayer();
+            mediaPlayer.setDataSource(mp3Url); // URL 세팅
+            mediaPlayer.setOnPreparedListener(mp -> {
+                // 준비 완료되면 재생
+                mp.start();
+            });
+            mediaPlayer.setOnErrorListener((mp, what, extra) -> {
+                Toast.makeText(context, "MediaPlayer 오류 발생", Toast.LENGTH_SHORT).show();
+                return false;
+            });
+            // 비동기로 준비
+            mediaPlayer.prepareAsync();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            Toast.makeText(context, "mp3 재생 실패: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
+
     private void speak(String text) {
-        // TTS 코드
         if (textToSpeech == null) {
             textToSpeech = new TextToSpeech(context, status -> {
                 if (status == TextToSpeech.SUCCESS) {
                     textToSpeech.setLanguage(Locale.KOREAN);
+                    // 초기화 성공 로그
+                    Log.d("TTS", "TTS init SUCCESS");
                     textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null, "tts1");
+                } else {
+                    // 초기화 실패 로그
+                    Log.e("TTS", "TTS init FAILED, status = " + status);
                 }
             });
         } else {
+            Log.d("TTS", "TTS is already initialized");
             textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null, "tts1");
         }
     }
+
 
     public void destroy() {
         if (speechRecognizer != null) {
@@ -193,9 +237,12 @@ public class FanActivity3 implements View.OnClickListener {
 
     public static class GPTResponse {
         private String text;
-
+        private String audio_url;
         public String getText() {
             return text;
+        }
+        public String getAudio_url() {
+            return audio_url;
         }
     }
 

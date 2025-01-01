@@ -1,302 +1,310 @@
 [
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_p17.png.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/p17.png"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/mipmap-xhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_wow.png.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/wow.png"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_home_background2.jpg.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/home_background2.jpg"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/layout_fragment_contact.xml.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/layout/fragment_contact.xml"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/mipmap-xxxhdpi/ic_launcher.webp"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/mipmap-anydpi-v26/ic_launcher.xml"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_p9.jpeg.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/p9.jpeg"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_file.png.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/file.png"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_p18.jpeg.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/p18.jpeg"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_p12.jpeg.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/p12.jpeg"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/layout_contact_profile.xml.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/layout/contact_profile.xml"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_button_background_3.xml.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/button_background_3.xml"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_hot_nupjuk.png.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/hot_nupjuk.png"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_fan.jpg.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/fan.jpg"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_sample.jpg.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/sample.jpg"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_contact_background.jpg.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/contact_background.jpg"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/mipmap-mdpi/ic_launcher.webp"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_home_background3.png.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/home_background3.png"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_p3.jpeg.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/p3.jpeg"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_p4.jpeg.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/p4.jpeg"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_angry_nupjuk.png.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/angry_nupjuk.png"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_sample.jpg.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/sample.jpg"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/mipmap-mdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_cool_background.jpg.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/cool_background.jpg"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/layout_fragment_image.xml.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/layout/fragment_image.xml"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/mipmap-mdpi/ic_launcher_round.webp"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_button_background_2.xml.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/button_background_2.xml"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/mipmap-xxxhdpi_ic_launcher.webp.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/mipmap-xxxhdpi/ic_launcher.webp"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_p12.jpeg.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/p12.jpeg"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/layout_activity_main.xml.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/layout/activity_main.xml"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_plus.png.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/plus.png"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_hot_nupjuk.png.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/hot_nupjuk.png"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_p4.jpeg.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/p4.jpeg"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_ayyaa.png.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/ayyaa.png"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/layout_image_item.xml.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/layout/image_item.xml"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_p11.jpeg.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/p11.jpeg"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_fanfan.png.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/fanfan.png"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_p1.jpeg.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/p1.jpeg"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_home_background.jpg.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/home_background.jpg"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/layout_contact_profile.xml.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/layout/contact_profile.xml"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_contact_background.jpg.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/contact_background.jpg"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/layout_fragment_home.xml.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/layout/fragment_home.xml"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_hot_background.jpg.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/hot_background.jpg"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_hey.jpeg.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/hey.jpeg"
+        "merged": "com.example.week01_project3.app-debug-72:/layout_fan.xml.flat",
+        "source": "com.example.week01_project3.app-main-74:/layout/fan.xml"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/layout_fan.xml.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/layout/fan.xml"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/mipmap-xxxhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_p20.jpeg.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/p20.jpeg"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/layout_activity_main.xml.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/layout/activity_main.xml"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_fanfan.png.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/fanfan.png"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_p20.jpeg.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/p20.jpeg"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_p18.jpeg.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/p18.jpeg"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_p6.jpeg.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/p6.jpeg"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_p2.jpeg.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/p2.jpeg"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/mipmap-xxhdpi/ic_launcher.webp"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/navigation_nav_graph.xml.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/navigation/nav_graph.xml"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_cool_background.jpg.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/cool_background.jpg"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/xml_data_extraction_rules.xml.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/xml/data_extraction_rules.xml"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_p10.jpeg.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/p10.jpeg"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/mipmap-xhdpi/ic_launcher.webp"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_p15.png.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/p15.png"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_p7.png.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/p7.png"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/mipmap-anydpi-v26/ic_launcher.xml"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/mipmap-xxhdpi_ic_launcher.webp.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/mipmap-xxhdpi/ic_launcher.webp"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_p2.jpeg.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/p2.jpeg"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/layout_fragment_image.xml.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/layout/fragment_image.xml"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/layout_fan.xml.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/layout/fan.xml"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_phone.jpg.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/phone.jpg"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_button_background_3.xml.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/button_background_3.xml"
     },
     {
-        "merged": "com.example.week01_project3.app-debug-72:/navigation_nav_graph.xml.flat",
-        "source": "com.example.week01_project3.app-main-74:/navigation/nav_graph.xml"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_p11.jpeg.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/p11.jpeg"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_p19.jpeg.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/p19.jpeg"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/xml_data_extraction_rules.xml.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/xml/data_extraction_rules.xml"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_p16.jpeg.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/p16.jpeg"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_nupzuk.png.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/nupzuk.png"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_p6.jpeg.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/p6.jpeg"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_p5.jpeg.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/p5.jpeg"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_p3.jpeg.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/p3.jpeg"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/layout_fragment_home.xml.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/layout/fragment_home.xml"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_ic_launcher_foreground.xml.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/ic_launcher_foreground.xml"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/layout_fragment_contact.xml.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/layout/fragment_contact.xml"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_p15.png.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/p15.png"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_p13.jpg.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/p13.jpg"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_home_background.jpg.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/home_background.jpg"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/xml_fileprovider_paths.xml.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/xml/fileprovider_paths.xml"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/mipmap-hdpi_ic_launcher.webp.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/mipmap-hdpi/ic_launcher.webp"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_p8.jpeg.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/p8.jpeg"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_heyyy.jpg.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/heyyy.jpg"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_list_item.xml.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/list_item.xml"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_cool_nupjuk.png.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/cool_nupjuk.png"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_wow.png.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/wow.png"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/mipmap-xxhdpi/ic_launcher_round.webp"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_ic_launcher_background.xml.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/ic_launcher_background.xml"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/layout_camera.xml.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/layout/camera.xml"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_p16.jpeg.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/p16.jpeg"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_nupzuk.png.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/nupzuk.png"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_cool_nupjuk.png.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/cool_nupjuk.png"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/layout_image_item.xml.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/layout/image_item.xml"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_p19.jpeg.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/p19.jpeg"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_rounded.xml.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/rounded.xml"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/mipmap-xhdpi/ic_launcher.webp"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_p10.jpeg.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/p10.jpeg"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_tiger.png.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/tiger.png"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_p9.jpeg.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/p9.jpeg"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/ic_launcher_foreground.xml"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/xml_backup_rules.xml.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/xml/backup_rules.xml"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_ayyaa.png.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/ayyaa.png"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/mipmap-xxxhdpi/ic_launcher_round.webp"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_phone.jpg.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/phone.jpg"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/mipmap-hdpi_ic_launcher_round.webp.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/mipmap-hdpi/ic_launcher_round.webp"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_heyyy.jpg.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/heyyy.jpg"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_button_background_2.xml.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/button_background_2.xml"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_button_background.xml.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/button_background.xml"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_list_item.xml.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/list_item.xml"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/xml_backup_rules.xml.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/xml/backup_rules.xml"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_p8.jpeg.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/p8.jpeg"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/mipmap-xxhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_p13.jpg.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/p13.jpg"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/layout_camera.xml.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/layout/camera.xml"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_button_background.xml.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/button_background.xml"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/navigation_nav_graph.xml.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/navigation/nav_graph.xml"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_angry_nupjuk.png.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/angry_nupjuk.png"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/mipmap-anydpi-v26/ic_launcher_round.xml"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_home_background2.jpg.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/home_background2.jpg"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_hey.jpeg.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/hey.jpeg"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/layout_list_item.xml.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/layout/list_item.xml"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_p1.jpeg.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/p1.jpeg"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_fffann.png.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/fffann.png"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/mipmap-hdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_p5.jpeg.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/p5.jpeg"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_chat.png.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/chat.png"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_p14.jpeg.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/p14.jpeg"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_fffann.png.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/fffann.png"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_ic_launcher_background.xml.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/ic_launcher_background.xml"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/mipmap-hdpi/ic_launcher.webp"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/mipmap-xhdpi_ic_launcher_round.webp.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/mipmap-xhdpi/ic_launcher_round.webp"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_p14.jpeg.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/p14.jpeg"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_plus.png.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/plus.png"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_file.png.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/file.png"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_hot_background.jpg.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/hot_background.jpg"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_p17.png.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/p17.png"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/mipmap-anydpi-v26/ic_launcher_round.xml"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_p7.png.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/p7.png"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/xml_fileprovider_paths.xml.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/xml/fileprovider_paths.xml"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/layout_list_item.xml.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/layout/list_item.xml"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/mipmap-mdpi_ic_launcher.webp.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/mipmap-mdpi/ic_launcher.webp"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_rounded.xml.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/rounded.xml"
     },
     {
-        "merged": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_tiger.png.flat",
-        "source": "/Users/seoeun/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/tiger.png"
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_fan.jpg.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/fan.jpg"
+    },
+    {
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_blow.png.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/blow.png"
+    },
+    {
+        "merged": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-debug-72:/drawable_home_background3.png.flat",
+        "source": "/Users/yungyeom/.gradle/daemon/8.9/com.example.week01_project3.app-main-74:/drawable/home_background3.png"
     }
 ]
