@@ -13,7 +13,7 @@
 - **네트워킹:** Retrofit
 - **대화 생성:** GPT-4o API
 
-더 자세한 정보와 프로젝트의 세부 사항은 [프로젝트 노션 페이지](https://www.notion.so/SAVE-NUPJUK-16e817fde8e480db9917d6210f98909e?pvs=4)에서 확인하실 수 있습니다.
+더 자세한 정보와 사진, 작동 동영상, 프로젝트의 세부 사항은 [프로젝트 노션 페이지](https://www.notion.so/SAVE-NUPJUK-16e817fde8e480db9917d6210f98909e?pvs=4)에서 확인하실 수 있습니다.
 
 ## 팀원
 
